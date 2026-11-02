@@ -1,48 +1,107 @@
 <!doctype html>
+
 <html lang="en">
   <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta
       name="description"
-      content="CODEX Web and Design transforms ideas into creative digital experiences through technology, design, and innovation.">
-    <meta name="author" content="Perfect Foko Codex15P">
+      content="CODEX Web and Design transforms ideas into creative digital experiences through technology, design, and innovation."
+    />
+
+    <meta name="author" content="Perfect Foko Codex15P" />
+
+    <meta name="theme-color" content="#0B0F19" />
+
     <title>CODEX | Web and Design</title>
-    <link rel="stylesheet" href="css/style.css">
+
+    <link rel="stylesheet" href="css/style.css" />
     <script src="js/script.js" defer></script>
   </head>
   <body class="startup-page">
     <header class="startup-header">
-      <h1 class="startup-title">CODEX</h1>
+      <a
+        href="index.html"
+        class="startup-brand"
+        aria-label="CODEX Web and Design — Entry page"
+      >
+        <span class="startup-title">CODEX</span>
+        <span class="startup-brand-subtitle">WEB AND DESIGN</span>
+      </a>
+      <button
+        type="button"
+        class="menu-toggle"
+        id="menuToggle"
+        aria-label="Open navigation menu"
+        aria-controls="mainNavigation"
+        aria-expanded="false"
+      >
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+
+      <nav
+        class="startup-navigation"
+        id="mainNavigation"
+        aria-label="Main navigation"
+        hidden
+      >
+        <a href="codex-home.html">Home Page</a>
+        <a href="codex-gallery.html">View Completed Projects</a>
+        <a href="codex-project.html">Preview upcoming Project</a>
+        <a href="codex-enquiry.html">Plan a New Project</a>
+        <a href="codex-team.html">Meet The Team</a>
+        <a href="codex-about.html">About CODEX</a>
+
+        <a
+          href="https://chat.whatsapp.com/H5QAHe00jgaHlfQfZCJz6q"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="navigation-community-link"
+        >
+          WhatsApp Community
+        </a>
+      </nav>
     </header>
 
     <video
       autoplay
       muted
       playsinline
+      loop
+      preload="metadata"
       class="bg-video"
       id="codexVideo"
-      preload="metadata"
       aria-hidden="true"
     >
-      <source src="videos/codex-presentation.mp4" type="video/mp4">
+      <source src="videos/codex-presentation.mp4" type="video/mp4" />
       Your browser does not support HTML video.
     </video>
 
+    <div class="startup-overlay" aria-hidden="true"></div>
+
     <main class="startup-content">
-      <p class="codex-aim">
-        &middot; Turning Your Dreams Into Reality &middot;
+      <p class="codex-aim">Turning Your Dreams Into Reality</p>
+
+      <p class="startup-description">
+        Creative thinking. Digital solutions. Your vision brought to life.
       </p>
-      <a href="codex-home.html" class="explore-button"> Explore </a>
+
+      <a href="codex-gallery.html" class="explore-button">
+        View Our Work
+        <span aria-hidden="true">→</span>
+      </a>
     </main>
 
     <span class="bottom-line" aria-hidden="true"></span>
 
     <footer class="startup-footer">
-      <p class="codex-motto">You think &middot; We create</p>
+      <p class="codex-motto">You Think. We Create.</p>
 
       <p class="copyright">
-        &copy; 2026 CODEX Web and Design. All rights reserved.
+        &copy; <span id="startupCurrentYear">2026</span>
+        CODEX Web and Design. All rights reserved.
       </p>
     </footer>
   </body>
