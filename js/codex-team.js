@@ -1,214 +1,153 @@
-const teamMembers = document.querySelectorAll(".team-page .team-member");
+/* ========================================
+   CODEX WEB AND DESIGN — TEAM PAGE
+======================================== */
 
-if (teamMembers.length > 0) {
-  teamMembers.forEach(function (member) {
-    const header = member.querySelector(".member-header");
-    const information = member.querySelector(".member-info");
-    const icon = member.querySelector(".toggle-icon");
+(function initializeCodexTeam() {
+  "use strict";
 
-    if (!header || !information) {
-      return;
+  const teamPage = document.querySelector(".team-page");
+
+  if (!teamPage) return;
+
+  // UPDATE FOOTER YEAR
+  const currentYear = teamPage.querySelector("#teamCurrentYear");
+
+  if (currentYear) {
+    currentYear.textContent = new Date().getFullYear();
+  }
+
+  // TEAM MEMBER ACCORDIONS
+  const memberButtons = teamPage.querySelectorAll(".member-header");
+
+  function closeMember(button) {
+    const contentId = button.getAttribute("aria-controls");
+    const content = contentId ? document.getElementById(contentId) : null;
+
+    button.setAttribute("aria-expanded", "false");
+
+    const icon = button.querySelector(".toggle-icon");
+
+    if (icon) {
+      icon.textContent = "+";
     }
 
-    if (header.tagName !== "BUTTON" && !header.hasAttribute("tabindex")) {
-      header.setAttribute("tabindex", "0");
+    if (content) {
+      content.hidden = true;
+    }
+  }
+
+  function openMember(button) {
+    const contentId = button.getAttribute("aria-controls");
+    const content = contentId ? document.getElementById(contentId) : null;
+
+    button.setAttribute("aria-expanded", "true");
+
+    const icon = button.querySelector(".toggle-icon");
+
+    if (icon) {
+      icon.textContent = "−";
     }
 
-    if (header.tagName !== "BUTTON" && !header.hasAttribute("role")) {
-      header.setAttribute("role", "button");
+    if (content) {
+      content.hidden = false;
+    }
+  }
+
+  memberButtons.forEach((button) => {
+    const contentId = button.getAttribute("aria-controls");
+    const content = contentId ? document.getElementById(contentId) : null;
+
+    button.setAttribute("aria-expanded", "false");
+
+    if (content) {
+      content.hidden = true;
     }
 
-    function closeTeamMember() {
-      member.classList.remove("active");
+    button.addEventListener("click", () => {
+      const isOpen = button.getAttribute("aria-expanded") === "true";
 
-      header.setAttribute("aria-expanded", "false");
-
-      information.hidden = true;
-
-      if (icon) {
-        icon.textContent = "+";
-      }
-    }
-
-    function openTeamMember() {
-      member.classList.add("active");
-
-      header.setAttribute("aria-expanded", "true");
-
-      information.hidden = false;
-
-      if (icon) {
-        icon.textContent = "−";
-      }
-    }
-
-    if (
-      member.classList.contains("active") ||
-      header.getAttribute("aria-expanded") === "true"
-    ) {
-      openTeamMember();
-    } else {
-      closeTeamMember();
-    }
-
-    function toggleTeamMember() {
-      const isOpen = header.getAttribute("aria-expanded") === "true";
-
-      teamMembers.forEach(function (otherMember) {
-        if (otherMember === member) {
-          return;
-        }
-
-        const otherHeader = otherMember.querySelector(".member-header");
-
-        const otherInformation = otherMember.querySelector(".member-info");
-
-        const otherIcon = otherMember.querySelector(".toggle-icon");
-
-        otherMember.classList.remove("active");
-
-        if (otherHeader) {
-          otherHeader.setAttribute("aria-expanded", "false");
-        }
-
-        if (otherInformation) {
-          otherInformation.hidden = true;
-        }
-
-        if (otherIcon) {
-          otherIcon.textContent = "+";
-        }
+      memberButtons.forEach((otherButton) => {
+        closeMember(otherButton);
       });
 
-      if (isOpen) {
-        closeTeamMember();
-      } else {
-        openTeamMember();
-      }
-    }
-
-    header.addEventListener("click", toggleTeamMember);
-
-    header.addEventListener("keydown", function (event) {
-      if (
-        header.tagName !== "BUTTON" &&
-        (event.key === "Enter" || event.key === " ")
-      ) {
-        event.preventDefault();
-        toggleTeamMember();
+      if (!isOpen) {
+        openMember(button);
       }
     });
   });
-}
 
-const imageViewer = document.getElementById("imageViewer");
-const fullTeamImage = document.getElementById("fullTeamImage");
-const imageViewerClose = document.getElementById("imageViewerClose");
+  // IMAGE VIEWER
+  const imageViewer = teamPage.querySelector("#imageViewer");
+  const fullTeamImage = teamPage.querySelector("#fullTeamImage");
+  const imageViewerClose = teamPage.querySelector("#imageViewerClose");
+  const memberPictures = teamPage.querySelectorAll(".member-picture");
 
-if (imageViewer && fullTeamImage) {
-  let lastFocusedImage = null;
-
-  const memberPictures = document.querySelectorAll(
-    ".team-page .member-picture",
-  );
-
-  function closeImageViewer() {
-    imageViewer.classList.remove("active");
-    imageViewer.hidden = true;
-
-    imageViewer.setAttribute("aria-hidden", "true");
-
-    document.body.classList.remove("image-viewer-open");
-
-    if (lastFocusedImage) {
-      lastFocusedImage.focus();
-    }
+  if (!imageViewer || !fullTeamImage || !imageViewerClose) {
+    return;
   }
 
-  function openImageViewer(image) {
-    if (!image) {
-      return;
-    }
+  let previouslyFocusedElement = null;
 
-    lastFocusedImage = image;
+  function openImageViewer(picture) {
+    if (!picture || !picture.src) return;
 
-    const imageSource = image.currentSrc || image.getAttribute("src");
+    previouslyFocusedElement = picture;
 
-    if (!imageSource) {
-      return;
-    }
-
-    fullTeamImage.src = imageSource;
-
-    fullTeamImage.alt = image.getAttribute("alt") || "Team member image";
+    fullTeamImage.src = picture.src;
+    fullTeamImage.alt = picture.alt || "Enlarged team photograph";
 
     imageViewer.hidden = false;
+    document.body.style.overflow = "hidden";
 
-    imageViewer.classList.add("active");
+    imageViewerClose.focus();
+  }
 
-    imageViewer.setAttribute("aria-hidden", "false");
+  function closeImageViewer() {
+    if (imageViewer.hidden) return;
 
-    document.body.classList.add("image-viewer-open");
+    imageViewer.hidden = true;
+    fullTeamImage.removeAttribute("src");
+    fullTeamImage.alt = "";
 
-    if (imageViewerClose) {
-      imageViewerClose.focus();
+    document.body.style.overflow = "";
+
+    if (previouslyFocusedElement) {
+      previouslyFocusedElement.focus();
+      previouslyFocusedElement = null;
     }
   }
 
-  memberPictures.forEach(function (picture) {
-    picture.addEventListener("click", function () {
-      let image = null;
+  memberPictures.forEach((picture) => {
+    picture.setAttribute("tabindex", "0");
+    picture.setAttribute("role", "button");
+    picture.setAttribute(
+      "aria-label",
+      `View larger image: ${picture.alt || "Team member"}`,
+    );
 
-      if (picture.tagName === "IMG") {
-        image = picture;
-      } else {
-        image = picture.querySelector("img");
-      }
-
-      if (!image) {
-        return;
-      }
-
-      openImageViewer(image);
+    picture.addEventListener("click", () => {
+      openImageViewer(picture);
     });
 
-    if (
-      picture.tagName !== "BUTTON" &&
-      picture.tagName !== "A" &&
-      !picture.hasAttribute("tabindex")
-    ) {
-      picture.setAttribute("tabindex", "0");
-    }
-
-    picture.addEventListener("keydown", function (event) {
-      if (
-        picture.tagName !== "BUTTON" &&
-        picture.tagName !== "A" &&
-        (event.key === "Enter" || event.key === " ")
-      ) {
+    picture.addEventListener("keydown", (event) => {
+      if (event.key === "Enter" || event.key === " ") {
         event.preventDefault();
-
-        const image =
-          picture.tagName === "IMG" ? picture : picture.querySelector("img");
-
-        openImageViewer(image);
+        openImageViewer(picture);
       }
     });
   });
 
-  if (imageViewerClose) {
-    imageViewerClose.addEventListener("click", closeImageViewer);
-  }
+  imageViewerClose.addEventListener("click", closeImageViewer);
 
-  imageViewer.addEventListener("click", function (event) {
+  imageViewer.addEventListener("click", (event) => {
     if (event.target === imageViewer) {
       closeImageViewer();
     }
   });
 
-  document.addEventListener("keydown", function (event) {
+  document.addEventListener("keydown", (event) => {
     if (event.key === "Escape" && !imageViewer.hidden) {
       closeImageViewer();
     }
   });
-}
+})();
