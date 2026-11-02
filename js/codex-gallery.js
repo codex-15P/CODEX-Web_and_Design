@@ -1,35 +1,53 @@
-(function initializeCodexProjectGallery() {
+(function initializeCodexGallery() {
   "use strict";
-
-  const galleryCurrentYear = document.getElementById("galleryCurrentYear");
-
-  if (galleryCurrentYear) {
-    galleryCurrentYear.textContent = new Date().getFullYear();
-  }
 
   const galleryPage = document.querySelector(".project-gallery-page");
 
-  if (!galleryPage) {
-    return;
+  if (!galleryPage) return;
+
+  // =====================================
+  // COPYRIGHT YEAR
+  // =====================================
+
+  const currentYear = galleryPage.querySelector("#galleryCurrentYear");
+
+  if (currentYear) {
+    currentYear.textContent = new Date().getFullYear();
   }
+
+  // =====================================
+  // GALLERY ELEMENTS
+  // =====================================
 
   const filterButtons = galleryPage.querySelectorAll(".gallery-filter-button");
 
-  const projectGrid = document.getElementById("galleryProjectGrid");
+  const projectGrid = galleryPage.querySelector("#galleryProjectGrid");
 
-  const emptyState = document.getElementById("galleryEmptyState");
+  const emptyState = galleryPage.querySelector("#galleryEmptyState");
 
   const showAllButton = galleryPage.querySelector(".gallery-show-all-button");
 
-  if (filterButtons.length === 0 || !projectGrid || !emptyState) {
+  // Check that the essential elements exist.
+  if (!filterButtons.length || !projectGrid || !emptyState) {
+    console.warn(
+      "CODEX Gallery: A required gallery element could not be found.",
+    );
+
     return;
   }
 
-  const projectCards = Array.from(
-    projectGrid.querySelectorAll(".gallery-project-card"),
-  );
+  // =====================================
+  // PROJECT FILTERING
+  // =====================================
 
   function filterGalleryProjects(selectedCategory) {
+    // Get the current project cards whenever filtering happens.
+    // This makes the gallery easier to expand in the future.
+
+    const projectCards = Array.from(
+      projectGrid.querySelectorAll(".gallery-project-card"),
+    );
+
     let visibleProjects = 0;
 
     projectCards.forEach(function (card) {
@@ -45,6 +63,7 @@
       }
     });
 
+    // Update the selected category button.
     filterButtons.forEach(function (button) {
       const isSelected =
         button.getAttribute("data-category") === selectedCategory;
@@ -54,32 +73,40 @@
       button.setAttribute("aria-pressed", String(isSelected));
     });
 
-    if (visibleProjects === 0) {
-      emptyState.hidden = false;
-      projectGrid.hidden = true;
-    } else {
-      emptyState.hidden = true;
-      projectGrid.hidden = false;
-    }
+    // Display the empty message if no projects match.
+    const hasNoProjects = visibleProjects === 0;
+
+    emptyState.hidden = !hasNoProjects;
+    projectGrid.hidden = hasNoProjects;
   }
+
+  // =====================================
+  // FILTER BUTTON EVENTS
+  // =====================================
 
   filterButtons.forEach(function (button) {
     button.addEventListener("click", function () {
       const selectedCategory = button.getAttribute("data-category");
 
-      if (!selectedCategory) {
-        return;
-      }
+      if (!selectedCategory) return;
 
       filterGalleryProjects(selectedCategory);
     });
   });
+
+  // =====================================
+  // VIEW ALL WORK BUTTON
+  // =====================================
 
   if (showAllButton) {
     showAllButton.addEventListener("click", function () {
       filterGalleryProjects("all");
     });
   }
+
+  // =====================================
+  // INITIAL GALLERY DISPLAY
+  // =====================================
 
   filterGalleryProjects("all");
 })();
