@@ -1,27 +1,35 @@
 <!doctype html>
+
 <html lang="en">
   <head>
-    <meta charset="UTF-8" >
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" >
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta
       name="description"
-      content="CODEX Web and Design transforms ideas into creative digital experiences through web development, graphic design, animation, and digital solutions."
-    >
-    <meta name="author" content="Perfect Foko Codex15P" >
-    <title>CODEX | Homepage</title>
-    <link rel="stylesheet" href="css/codex-home.css" >
+      content="Welcome to CODEX Web and Design. We create websites, graphic designs, animations, and practical digital solutions that bring ideas to life."
+    />
+
+    <meta name="author" content="Perfect Foko Codex15P" />
+    <meta name="theme-color" content="#0B0F19" />
+
+    <title>CODEX | Creative Digital Solutions</title>
+
+    <link rel="stylesheet" href="css/codex-home.css" />
     <script src="js/codex-home.js" defer></script>
   </head>
   <body class="home-page">
     <header class="home-header">
-      <div class="home-brand" >
-        <img src="images/codex-logo.png" alt="CODEX logo" class="home-logo" >
-
-        <div class="home-brand-text">
-        <span class="home-brand-name"> CODEX </span>
-        <span class="home-brand-subtitle"> WEB AND DESIGN </span>
-        </div>
-      </div>
+      <a
+        href="index.html"
+        class="home-brand"
+        aria-label="CODEX Web and Design entry page"
+      >
+        <img src="images/codex-logo.png" alt="CODEX logo" class="home-logo" />
+        <span class="home-brand-text">
+          <span class="home-brand-name">CODEX</span>
+          <span class="home-brand-subtitle">WEB AND DESIGN</span>
+        </span>
+      </a>
 
       <button
         type="button"
@@ -35,47 +43,218 @@
         <span></span>
         <span></span>
       </button>
+
+      <nav
+        class="home-navigation"
+        id="mainNavigation"
+        aria-label="Main navigation"
+        hidden
+      >
+        <a href="index.html">Startup Page</a>
+        <a href="codex-gallery.html">View Completed Projects</a>
+        <a href="codex-project.html">Preview Upcoming Projects</a>
+        <a href="codex-enquiry.html">Plan a New Project</a>
+        <a href="codex-team.html">Meet The Team</a>
+        <a href="codex-about.html">About CODEX</a>
+
+        <a
+          href="https://chat.whatsapp.com/H5QAHe00jgaHlfQfZCJz6q"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="home-community-link"
+        >
+          WhatsApp Community
+        </a>
+      </nav>
     </header>
 
-    <nav
-      class="main-navigation"
-      id="mainNavigation"
-      aria-label="Main navigation"
-      hidden
-    >
-      <a href="codex-project.html"> View Projects </a>
-      <span class="lines"></span>
-
-      <a href="codex-team.html"> Teams Info </a>
-      <span class="lines"></span>
-
-      <a href="codex-about.html"> About Us</a>
-      <span class="lines"></span>
-    </nav>
-
     <main class="home-main">
-      <section class="home-introduction">
-        <p class="home-eyebrow">
-          IDEAS &middot; CREATIVITY &middot; TECHNOLOGY
+      <section class="home-hero" aria-labelledby="homeTitle">
+        <div class="home-hero-content">
+          <p class="home-eyebrow">YOUR IDEAS. OUR CREATIVITY.</p>
+
+          <h1 id="homeTitle">
+            Welcome to
+            <span class="home-highlight">CODEX</span>
+            Web and Design
+          </h1>
+
+          <p class="home-description">
+            We turn ideas into creative digital experiences through web
+            development, graphic design, video editing, animation, and practical
+            digital solutions.
+          </p>
+
+          <p class="home-motto">You Think. We Create.</p>
+
+          <div class="home-actions">
+            <a href="codex-gallery.html" class="home-primary-button">
+              Explore Our Projects
+              <span aria-hidden="true">→</span>
+            </a>
+
+            <a href="codex-enquiry.html" class="home-secondary-button">
+              Start a New Project
+            </a>
+          </div>
+        </div>
+
+        <div class="home-visual" aria-label="CODEX brand">
+          <div class="home-visual-glow" aria-hidden="true"></div>
+
+          <img
+            src="images/codex-logo.png"
+            alt="CODEX Web and Design emblem"
+            class="home-feature-logo"
+          />
+
+          <p class="home-visual-title">Think Beyond Limits.</p>
+
+          <p class="home-visual-description">
+            Creative ideas. Digital possibilities.
+          </p>
+        </div>
+      </section>
+
+      <section class="home-services" aria-labelledby="servicesTitle">
+        <header class="home-section-heading">
+          <p class="home-eyebrow">WHAT WE DO</p>
+
+          <h2 id="servicesTitle">Creative Skills. Practical Solutions.</h2>
+
+          <p>
+            We combine technology and creativity to help bring your ideas,
+            projects, and digital goals to life.
+          </p>
+        </header>
+
+        <div class="home-service-grid">
+          <article class="home-service-card">
+            <span class="home-service-number" aria-hidden="true">01</span>
+
+            <h3>Web Development</h3>
+
+            <p>
+              Responsive websites built to present your brand, services, ideas,
+              and projects online.
+            </p>
+          </article>
+
+          <article class="home-service-card">
+            <span class="home-service-number" aria-hidden="true">02</span>
+
+            <h3>Graphic Design</h3>
+
+            <p>
+              Creative visual designs that communicate ideas and help brands
+              stand out.
+            </p>
+          </article>
+
+          <article class="home-service-card">
+            <span class="home-service-number" aria-hidden="true">03</span>
+
+            <h3>Video Editing</h3>
+
+            <p>
+              Edited visual content designed to communicate messages clearly and
+              creatively.
+            </p>
+          </article>
+
+          <article class="home-service-card">
+            <span class="home-service-number" aria-hidden="true">04</span>
+
+            <h3>Animation</h3>
+
+            <p>
+              Motion and visual storytelling for creative presentations and
+              digital content.
+            </p>
+          </article>
+
+          <article class="home-service-card">
+            <span class="home-service-number" aria-hidden="true">05</span>
+
+            <h3>Microsoft Applications</h3>
+
+            <p>
+              Practical document, spreadsheet, and presentation support using
+              Microsoft Office applications.
+            </p>
+          </article>
+
+          <article class="home-service-card">
+            <span class="home-service-number" aria-hidden="true">06</span>
+
+            <h3>Digital Solutions</h3>
+
+            <p>
+              Useful digital services and creative support tailored to your
+              needs.
+            </p>
+          </article>
+        </div>
+      </section>
+
+      <section class="home-projects" aria-labelledby="projectsTitle">
+        <div class="home-projects-content">
+          <p class="home-eyebrow">OUR CREATIVE JOURNEY</p>
+
+          <h2 id="projectsTitle">Ideas Deserve to Become Reality.</h2>
+
+          <p>
+            Discover completed work in our Gallery and follow upcoming projects
+            as CODEX continues to grow.
+          </p>
+
+          <div class="home-actions">
+            <a href="codex-gallery.html" class="home-primary-button">
+              View Completed Work
+              <span aria-hidden="true">→</span>
+            </a>
+
+            <a href="codex-project.html" class="home-secondary-button">
+              Upcoming Projects
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <section class="home-contact" aria-labelledby="contactTitle">
+        <p class="home-eyebrow">LET'S CREATE SOMETHING</p>
+
+        <h2 id="contactTitle">Have an Idea in Mind?</h2>
+
+        <p>
+          Tell us what you want to create, improve, or bring online. Let's
+          discuss the next step for your project.
         </p>
 
-        <h1 class="home-title">Welcome to <span class="add1">CODEX</span></h1>
-
-        <p class="home-description">
-          We turn ideas into creative digital experiences through web
-          development, graphic design, animation, and innovative digital
-          solutions.
-        </p>
-
-        <p class="codex-aim">&middot; Turning Your Ideas Into Reality &middot;</p>
+        <a href="codex-enquiry.html" class="home-primary-button">
+          Make an Inquiry
+          <span aria-hidden="true">→</span>
+        </a>
       </section>
     </main>
 
     <footer class="home-footer">
-      <p class="codex-motto">You Think &middot; We Create</p>
+      <a href="index.html" class="home-footer-brand"> CODEX Web and Design </a>
+
+      <p class="codex-motto">You Think. We Create.</p>
+
+      <nav class="home-footer-navigation" aria-label="Footer navigation">
+        <a href="index.html">Startup</a>
+        <a href="codex-gallery.html">Projects</a>
+        <a href="codex-project.html">Preview</a>
+        <a href="codex-enquiry.html">Inquiry</a>
+        <a href="codex-team.html">Team</a>
+        <a href="codex-about.html">About</a>
+      </nav>
 
       <p class="copyright">
-        &copy; 2026 CODEX Web and Design. All rights reserved.
+        &copy; <span id="homeCurrentYear">2026</span>
+        CODEX Web and Design. All rights reserved.
       </p>
     </footer>
   </body>
