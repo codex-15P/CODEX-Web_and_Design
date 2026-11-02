@@ -1,19 +1,23 @@
+/* ========================================
+   CODEX WEB AND DESIGN — ABOUT PAGE
+======================================== */
+
 .about-page {
   --codex-bg: #0b0f19;
+  --codex-deep: #080b12;
   --codex-card: #151c2b;
   --codex-blue: #1e90ff;
   --codex-cyan: #00c6ff;
   --codex-white: #ffffff;
   --codex-muted: #c5cbd5;
-  --codex-black: #000000;
-  --codex-mb: #080b12;
+  --codex-border: #263449;
+
   margin: 0;
   min-height: 100vh;
   background: var(--codex-bg);
   color: var(--codex-white);
   font-family: Cambria, Georgia, serif;
   line-height: 1.7;
-  overflow-x: hidden;
 }
 
 .about-page *,
@@ -23,516 +27,369 @@
 }
 
 .about-page a {
-  -webkit-tap-highlight-color: transparent;
+  color: inherit;
+  text-decoration: none;
 }
 
 .about-page button {
   font: inherit;
 }
 
-.about-page .about-header {
+.about-header {
+  width: 100%;
+  min-height: 82px;
+  padding: 16px clamp(18px, 6vw, 85px);
   display: flex;
   align-items: center;
   justify-content: space-between;
-  width: 100%;
-  min-height: 78px;
-  padding: clamp(12px, 1.5vw, 28px);
-  background: var(--codex-mb);
-  border-bottom: 1px solid var(--codex-blue);
+  gap: 20px;
+  background: var(--codex-deep);
+  border-bottom: 1px solid var(--codex-border);
 }
 
-.about-page .about-brand {
+.about-brand {
   display: inline-flex;
   align-items: center;
-  gap: clamp(12px, 0.5vw, 16px);
-  min-width: 0;
+  gap: 12px;
+  font-size: clamp(1rem, 2vw, 1.3rem);
+  font-weight: 700;
 }
 
-.about-page .about-logo {
-  width: clamp(54px, 5vw, 70px);
-  height: clamp(54px, 5vw, 70px);
+.about-logo {
+  width: 46px;
+  height: 46px;
   object-fit: contain;
-  flex-shrink: 0;
-  border-radius: 50px;
-  border: 2px solid var(--codex-cyan);
 }
 
-.about-page .about-brand-text {
-  display: flex;
-  flex-direction: column;
-  line-height: 0.9;
-}
-
-.about-page .about-brand-name {
-  font-size: clamp(26px, 3vw, 36px);
-  font-weight: 1000;
-  letter-spacing: 3px;
-}
-
-.about-page .about-brand-subtitle {
-  margin-top: 2px;
-  color: var(--codex-cyan);
-  font-size: clamp(12px, 1.3vw, 18px);
-  font-weight: 700;
-  letter-spacing: 0.5px;
-}
-
-.about-page .about-home-link {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  flex-shrink: 0;
-  min-height: 40px;
-  padding: 8px 17px;
-  border: 2px solid var(--codex-blue);
-  border-radius: 10px;
-  color: var(--codex-white);
-  font-size: 16px;
-  font-weight: 700;
-  text-decoration: none;
-  transition:
-    background-color 0.5s ease,
-    color 0.5s ease,
-    border-color 0.5s ease;
-}
-
-.about-page .about-home-link:hover {
-  background: var(--codex-white);
-  border-color: var(--codex-cyan);
-  color: var(--codex-bg);
-}
-
-.about-page .about-main {
-  width: 100%;
-  max-width: 1000px;
-
-  margin: 0 auto;
-  padding: 45px 24px 35px;
-}
-
-.about-page .about-welcome {
-  margin-bottom: 38px;
-  text-align: center;
-}
-
-.about-page .about-eyebrow {
-  margin: 0 0 16px;
-  font-family: "Times New Roman", Times, serif;
-  color: var(--codex-cyan);
-  font-size: clamp(16px, 3vw, 22px);
-  font-weight: 700;
-  letter-spacing: 4px;
-  line-height: 1;
-}
-
-.about-page .about-welcome h1 {
-  margin: 0 0 20px;
-  font-size: clamp(34px, 5vw, 70px);
-  font-weight: 700;
-  line-height: 1.2;
-  overflow-wrap: anywhere;
-}
-
-.about-page .about-description {
-  max-width: 670px;
-  margin: 0 auto;
-  font-family: Arial, Helvetica, sans-serif;
-  color: var(--codex-muted);
-  font-size: clamp(16px, 2.2vw, 20px);
-  line-height: 1.7;
-}
-
-.about-page .codex-aim {
-  margin: 32px 0 0;
-  color: var(--codex-blue);
-  font-family: Cambria, Georgia, serif;
-  font-size: clamp(19px, 3vw, 25px);
-  font-weight: 700;
-  font-style: italic;
-  letter-spacing: 0.5px;
-}
-
-.about-page .about-accordion-section {
-  width: 100%;
-}
-
-.about-page .about-section-intro {
-  max-width: 700px;
-  margin: 0 auto 28px;
-  color: var(--codex-muted);
-  font-size: clamp(15px, 2vw, 21px);
-  text-align: center;
-}
-
-.about-page .about-accordion-item {
-  width: 100%;
-  margin: 0 0 13px;
-  background: var(--codex-mb);
-  border: 2px solid var(--codex-blue);
-  border-radius: 10px;
-  overflow: hidden;
-  transition:
-    border-color 0.5s ease,
-    background-color 0.5s ease;
-}
-
-.about-page .about-accordion-item:hover {
-  border-color: var(--codex-cyan);
-}
-
-.about-page .about-accordion-heading {
-  margin: 0;
-  padding: 0;
-  font-size: inherit;
-}
-
-.about-page .about-accordion-button {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 18px;
-  width: 100%;
-  min-height: 68px;
-  padding: 18px 22px;
-  background: transparent;
-  border: 0;
-  border-radius: 0;
-  color: var(--codex-white);
-  cursor: pointer;
-  font-size: clamp(14px, 2.2vw, 17px);
-  font-weight: 700;
-  letter-spacing: 0.8px;
-  line-height: 1.5;
-  text-align: left;
-  transition:
-    background-color 0.5s ease,
-    color 0.5s ease;
-}
-
-.about-page .about-accordion-button:hover {
-  background: var(--codex-muted);
-  color: var(--codex-black);
-}
-
-.about-page .about-accordion-button[aria-expanded="true"] {
-  background: rgba(30, 144, 255, 0.1);
-  color: var(--codex-cyan);
-}
-
-.about-page .about-accordion-button:active {
-  outline: 2px solid var(--codex-blue);
-  outline-offset: -4px;
-}
-
-.about-page .about-toggle-icon {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  flex-shrink: 0;
-  width: 30px;
-  height: 30px;
-  border: 2px solid var(--codex-blue);
-  border-radius: 50%;
-  color: var(--codex-white);
-  font-family: Arial, sans-serif;
-  font-size: 21px;
-  font-weight: 400;
-  line-height: 1;
-  transition:
-    background-color 0.5s ease,
-    color 0.5s ease;
-}
-
-.about-page .about-accordion-button[aria-expanded="true"] .about-toggle-icon {
-  background: var(--codex-cyan);
-  color: var(--codex-mb);
-}
-
-.about-page .about-accordion-content {
-  padding: 8px 22px 26px;
-
-  border-top: 1px solid rgba(255, 255, 255, 0.07);
-  color: var(--codex-muted);
-  font-size: 15px;
-  line-height: 1.9;
-  overflow-wrap: anywhere;
-}
-
-.about-page .about-accordion-content[hidden] {
-  display: none;
-}
-
-.about-page .about-accordion-content p {
-  margin: 13px 0;
-}
-
-.about-page .about-accordion-content p:last-child {
-  margin-bottom: 0;
-}
-
-.about-page .about-accordion-content strong {
-  color: var(--codex-white);
-  font-weight: 700;
-}
-
-.about-page .about-services-list,
-.about-page .about-values-list {
-  margin: 18px 0;
-  padding-left: 23px;
-}
-
-.about-page .about-services-list li,
-.about-page .about-values-list li {
-  margin: 0 0 12px;
-  padding-left: 5px;
-}
-
-.about-page .about-services-list li::marker,
-.about-page .about-values-list li::marker {
-  color: var(--codex-cyan);
-}
-
-.about-page .about-action-button {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  min-height: 46px;
-  margin-top: 18px;
-  padding: 11px 23px;
-  background: var(--codex-blue);
+.about-home-link {
+  padding: 9px 20px;
   border: 1px solid var(--codex-blue);
   border-radius: 7px;
   color: var(--codex-white);
-  font-size: 14px;
-  font-weight: 700;
-  line-height: 1.5;
-  text-align: center;
-  text-decoration: none;
   transition:
-    background-color 0.5s ease,
-    border-color 0.5s ease,
-    color 0.5s ease,
-    transform 0.5s ease;
+    background 0.25s ease,
+    border-color 0.25s ease;
 }
 
-.about-page .about-action-button:hover {
-  background: var(--codex-cyan);
-  border-color: var(--codex-cyan);
-  color: var(--codex-background);
+.about-home-link:hover {
+  background: var(--codex-blue);
+  border-color: var(--codex-blue);
 }
 
-.about-page .about-action-button:active {
-  transform: translateY(1px);
-}
-
-.about-page .about-action-button:active {
-  outline: 2px solid var(--codex-white);
-  outline-offset: 4px;
-}
-
-.about-page .about-footer {
-  width: 100%;
-  background: var(--codex-black);
-  border-top: 1px solid var(--codex-blue);
-  text-align: center;
-}
-
-.about-page .codex-motto {
-  font-size: clamp(18px, 3vw, 22px);
-  color: var(--codex-cyan);
-  font-style: italic;
-  margin-bottom: 0;
-  font-family: "Times New Roman", Times, serif;
-}
-
-.about-page .copyright {
-  margin: 0;
-  font-family: Arial, Helvetica, sans-serif;
-  color: var(--codex-muted);
-  font-size: clamp(14px, 1.5vw, 20px);
-  line-height: 1.6;
-}
-
-.codex-community {
-  width: 100%;
-  padding: clamp(40px, 7vw, 80px) 20px;
-  box-sizing: border-box;
-  text-align: center;
-}
-
-.codex-community-content {
-  width: 100%;
-  max-width: 750px;
+.about-main {
+  width: min(1100px, 90%);
   margin: 0 auto;
+  padding: 65px 0 80px;
 }
 
-.codex-community h2 {
-  margin: 0 0 18px;
+.about-welcome {
+  max-width: 780px;
+  margin: 0 auto 55px;
+  text-align: center;
+}
+
+.about-eyebrow {
+  margin: 0 0 12px;
   color: var(--codex-cyan);
-  font-size: clamp(1.6rem, 4vw, 2.4rem);
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+.about-welcome h1 {
+  margin: 0 0 20px;
+  font-size: clamp(2rem, 5vw, 3.5rem);
   line-height: 1.2;
 }
 
-.codex-community p {
-  max-width: 650px;
-  margin: 0 auto 28px;
-  color: #e5e7eb;
-  font-size: clamp(1rem, 2.5vw, 1.1rem);
-  font-family: Arial, Helvetica, sans-serif;
-  line-height: 1.5;
+.about-description {
+  max-width: 680px;
+  margin: 0 auto;
+  color: var(--codex-muted);
+  font-size: clamp(1rem, 2vw, 1.15rem);
 }
 
-.codex-community-button {
-  font-family: Arial, Helvetica, sans-serif;
-  display: inline-block;
-  padding: 14px 24px;
-  border: 3px solid var(--codex-cyan);
-  border-radius: 10px;
-  background: var(--codex-black);
-  color: #ffffff;
-  font-size: 1rem;
+.codex-aim {
+  margin: 22px 0 0;
+  color: var(--codex-cyan);
+  font-size: clamp(1.1rem, 2.5vw, 1.4rem);
   font-weight: 700;
-  line-height: 1.5;
-  text-align: center;
-  text-decoration: none;
-  overflow-wrap: anywhere;
-  transition:
-    background-color 0.5s ease,
-    border-color 0.5s ease,
-    transform 0.5s ease;
+  letter-spacing: 1px;
 }
 
-.codex-community-button:hover {
-  background: var(--codex-white);
+/* ABOUT ACCORDION */
+
+.about-content {
+  display: grid;
+  gap: 15px;
+}
+
+.about-section {
+  overflow: hidden;
+  background: var(--codex-card);
+  border: 1px solid var(--codex-border);
+  border-radius: 10px;
+  transition: border-color 0.25s ease;
+}
+
+.about-section:hover {
   border-color: var(--codex-blue);
-  color: var(--codex-black);
 }
 
-.codex-community-button:focus-visible {
-  outline: 3px solid var(--codex-blue);
+.about-accordion-button {
+  width: 100%;
+  min-height: 68px;
+  padding: 18px 22px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 15px;
+  background: transparent;
+  border: 0;
+  color: var(--codex-white);
+  text-align: left;
+  font-size: clamp(1.05rem, 2vw, 1.2rem);
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.about-accordion-button:focus-visible,
+.about-page a:focus-visible {
+  outline: 2px solid var(--codex-cyan);
   outline-offset: 4px;
 }
 
-@media (prefers-reduced-motion: reduce) {
-  .codex-community-button {
-    transition: none;
-  }
+.about-accordion-icon {
+  width: 30px;
+  height: 30px;
+  flex-shrink: 0;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  background: rgba(30, 144, 255, 0.14);
+  color: var(--codex-cyan);
+  font-size: 1.4rem;
+  transition:
+    transform 0.25s ease,
+    background 0.25s ease;
 }
 
-@media (max-width: 768px) {
-  .about-page .about-main {
-    padding-right: 22px;
-    padding-left: 22px;
+.about-accordion-button[aria-expanded="true"] .about-accordion-icon {
+  transform: rotate(45deg);
+  background: var(--codex-blue);
+  color: var(--codex-white);
+}
+
+.about-section-content {
+  padding: 0 22px 22px;
+  color: var(--codex-muted);
+  border-top: 1px solid var(--codex-border);
+}
+
+.about-section-content p {
+  margin: 17px 0 0;
+}
+
+.about-section-content ul {
+  margin: 15px 0 0;
+  padding-left: 23px;
+}
+
+.about-section-content li {
+  margin: 7px 0;
+}
+
+.about-inline-link {
+  display: inline-block;
+  margin-top: 18px;
+  color: var(--codex-cyan) !important;
+  font-weight: 700;
+  text-decoration: underline !important;
+  text-underline-offset: 4px;
+}
+
+/* COMMUNITY SECTION */
+
+.about-community {
+  margin-top: 65px;
+  padding: clamp(28px, 6vw, 55px);
+  background:
+    linear-gradient(120deg, rgba(30, 144, 255, 0.16), rgba(0, 198, 255, 0.06)),
+    var(--codex-card);
+  border: 1px solid var(--codex-border);
+  border-radius: 14px;
+  text-align: center;
+}
+
+.about-community-content {
+  max-width: 650px;
+  margin: 0 auto;
+}
+
+.about-community h2,
+.about-actions h2 {
+  margin: 0 0 14px;
+  font-size: clamp(1.7rem, 4vw, 2.4rem);
+  line-height: 1.25;
+}
+
+.about-community-content > p:not(.about-eyebrow) {
+  margin: 0 0 25px;
+  color: var(--codex-muted);
+}
+
+.about-community-button {
+  min-height: 48px;
+  padding: 12px 24px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--codex-blue);
+  border: 1px solid var(--codex-blue);
+  border-radius: 7px;
+  color: var(--codex-white) !important;
+  font-weight: 700;
+  text-align: center;
+  transition:
+    background 0.25s ease,
+    transform 0.25s ease;
+}
+
+.about-community-button:hover {
+  background: #0876d1;
+  transform: translateY(-2px);
+}
+
+/* PAGE ACTION LINKS */
+
+.about-actions {
+  margin-top: 65px;
+  text-align: center;
+}
+
+.about-action-links {
+  margin-top: 25px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 14px;
+}
+
+.about-action-button {
+  min-width: 155px;
+  padding: 12px 20px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: transparent;
+  border: 1px solid var(--codex-blue);
+  border-radius: 7px;
+  color: var(--codex-white) !important;
+  font-weight: 700;
+  transition:
+    background 0.25s ease,
+    transform 0.25s ease;
+}
+
+.about-action-button:hover {
+  background: var(--codex-blue);
+  transform: translateY(-2px);
+}
+
+/* FOOTER */
+
+.about-footer {
+  padding: 30px 20px;
+  background: var(--codex-deep);
+  border-top: 1px solid var(--codex-border);
+  text-align: center;
+}
+
+.about-footer > a {
+  color: var(--codex-cyan);
+  font-size: 1.1rem;
+  font-weight: 700;
+}
+
+.about-footer p {
+  margin: 8px 0 0;
+  color: var(--codex-muted);
+  font-size: 0.9rem;
+}
+
+/* RESPONSIVE DESIGN */
+
+@media (max-width: 760px) {
+  .about-header {
+    min-height: 72px;
+    padding: 13px 5%;
   }
 
-  .about-page .about-welcome {
-    padding-top: 60px;
+  .about-logo {
+    width: 39px;
+    height: 39px;
   }
 
-  .about-page .about-accordion-button {
-    min-height: 64px;
-    padding: 16px 18px;
+  .about-main {
+    width: 90%;
+    padding: 48px 0 60px;
   }
 
-  .about-page .about-accordion-content {
-    padding: 8px 18px 23px;
+  .about-welcome {
+    margin-bottom: 40px;
+  }
+
+  .about-community,
+  .about-actions {
+    margin-top: 48px;
   }
 }
 
 @media (max-width: 480px) {
-  .about-page .about-header {
-    min-height: 70px;
-    padding: 12px 14px;
-    gap: 10px;
-  }
-
-  .about-page .about-logo {
-    width: 37px;
-    height: 37px;
-  }
-
-  .about-page .about-brand {
+  .about-brand {
     gap: 8px;
-    font-size: 13px;
+    font-size: 0.95rem;
   }
 
-  .about-page .about-home-link {
-    min-height: 36px;
-    padding: 7px 11px;
-    font-size: 12px;
+  .about-logo {
+    width: 34px;
+    height: 34px;
   }
 
-  .about-page .about-main {
-    padding-right: 14px;
-    padding-left: 14px;
-    padding-bottom: 45px;
+  .about-home-link {
+    padding: 8px 13px;
+    font-size: 0.9rem;
   }
 
-  .about-page .about-welcome {
-    padding-top: 46px;
-    padding-bottom: 32px;
+  .about-main {
+    width: 91%;
+    padding-top: 38px;
   }
 
-  .about-page .about-eyebrow {
-    font-size: 12px;
-    letter-spacing: 2px;
+  .about-accordion-button {
+    min-height: 62px;
+    padding: 15px;
   }
 
-  .about-page .about-welcome-description {
-    font-size: 14px;
-    line-height: 1.85;
+  .about-section-content {
+    padding: 0 15px 18px;
   }
 
-  .about-page .about-welcome-motto {
-    margin-top: 17px;
+  .about-action-links {
+    flex-direction: column;
   }
 
-  .about-page .about-section-intro {
-    margin-bottom: 21px;
-    font-size: 14px;
-  }
-
-  .about-page .about-accordion-item {
-    margin-bottom: 10px;
-    border-radius: 8px;
-  }
-
-  .about-page .about-accordion-button {
-    min-height: 59px;
-    padding: 14px 13px;
-    gap: 10px;
-    font-size: 13px;
-    letter-spacing: 0.5px;
-  }
-
-  .about-page .about-toggle-icon {
-    width: 27px;
-    height: 27px;
-    font-size: 19px;
-  }
-
-  .about-page .about-accordion-content {
-    padding: 7px 14px 20px;
-    font-size: 14px;
-    line-height: 1.85;
-  }
-
-  .about-page .about-services-list,
-  .about-page .about-values-list {
-    padding-left: 20px;
-  }
-
-  .about-page .about-action-button {
+  .about-action-button {
     width: 100%;
-    min-height: 45px;
-    margin-top: 15px;
-    padding: 11px 14px;
   }
 
-  .about-page .about-footer {
-    padding: 24px 14px 20px;
+  .about-community-button {
+    width: 100%;
   }
 }
+
+/* ACCESSIBILITY */
 
 @media (prefers-reduced-motion: reduce) {
   .about-page *,
