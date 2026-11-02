@@ -1,3 +1,8 @@
+/* ========================================
+CODEX WEB AND DESIGN
+HOME PAGE STYLESHEET
+======================================== */
+
 .home-page {
   --codex-bg: #0b0f19;
   --codex-card: #151c2b;
@@ -7,15 +12,15 @@
   --codex-muted: #c5cbd5;
   --codex-black: #000000;
   --codex-mb: #080b12;
+  --codex-border: #263449;
+
   min-height: 100vh;
-  min-height: 100svh;
   margin: 0;
-  display: flex;
-  flex-direction: column;
+  padding: 0;
+  overflow-x: clip;
   background: var(--codex-bg);
   color: var(--codex-white);
-  font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
-  overflow-x: hidden;
+  font-family: Cambria, Cochin, Georgia, "Times New Roman", serif;
 }
 
 .home-page *,
@@ -24,56 +29,77 @@
   box-sizing: border-box;
 }
 
-.home-page a {
+.home-page a,
+.home-page button {
   -webkit-tap-highlight-color: transparent;
 }
 
+.home-page a {
+  color: inherit;
+}
+
+/* ========================================
+HEADER
+======================================== */
+
 .home-page .home-header {
+  position: relative;
+  z-index: 20;
   display: flex;
   align-items: center;
   justify-content: space-between;
+  gap: 18px;
   width: 100%;
   min-height: 78px;
-  padding: clamp(12px, 1.5vw, 28px);
+  padding: 12px clamp(15px, 4vw, 48px);
+  border-bottom: 1px solid var(--codex-border);
   background: var(--codex-mb);
-  border-bottom: 1px solid var(--codex-blue);
 }
 
 .home-page .home-brand {
   display: inline-flex;
   align-items: center;
-  gap: clamp(12px, 0.5vw, 16px);
+  gap: 12px;
   min-width: 0;
+  text-decoration: none;
 }
 
 .home-page .home-logo {
-  width: clamp(54px, 5vw, 70px);
-  height: clamp(54px, 5vw, 70px);
-  object-fit: contain;
+  display: block;
   flex-shrink: 0;
-  border-radius: 50px;
+  width: clamp(44px, 5vw, 62px);
+  height: clamp(44px, 5vw, 62px);
   border: 2px solid var(--codex-cyan);
+  border-radius: 50%;
+  object-fit: contain;
 }
 
 .home-page .home-brand-text {
   display: flex;
   flex-direction: column;
-  line-height: 0.9;
+  gap: 4px;
+  min-width: 0;
 }
 
 .home-page .home-brand-name {
-  font-size: clamp(26px, 3vw, 36px);
-  font-weight: 1000;
+  color: var(--codex-white);
+  font-size: clamp(25px, 3.5vw, 34px);
+  font-weight: 900;
   letter-spacing: 3px;
+  line-height: 1;
 }
 
 .home-page .home-brand-subtitle {
-  margin-top: 2px;
   color: var(--codex-cyan);
-  font-size: clamp(12px, 1.3vw, 18px);
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: clamp(10px, 1.4vw, 12px);
   font-weight: 700;
-  letter-spacing: 0.5px;
+  letter-spacing: 1.5px;
 }
+
+/* ========================================
+HAMBURGER BUTTON
+======================================== */
 
 .home-page .menu-toggle {
   display: flex;
@@ -82,228 +108,698 @@
   justify-content: center;
   gap: 5px;
   flex-shrink: 0;
-  width: 40px;
-  height: 40px;
-  padding: 8px;
-  border: 2px solid var(--codex-blue);
+  width: 44px;
+  height: 44px;
+  padding: 9px;
+  border: 1px solid var(--codex-blue);
   border-radius: 10px;
-  background: transparent;
+  background: var(--codex-card);
   cursor: pointer;
   transition:
-    background-color 0.5s ease,
-    border-color 0.5s ease;
+    background-color 0.25s ease,
+    border-color 0.25s ease;
 }
 
 .home-page .menu-toggle span {
   display: block;
-  width: 23px;
+  width: 22px;
   height: 2px;
   border-radius: 2px;
   background: var(--codex-white);
   transition:
-    transform 0.5s ease,
-    opacity 0.5s ease;
+    transform 0.25s ease,
+    opacity 0.25s ease;
 }
 
 .home-page .menu-toggle:hover {
-  border-color: var(--codex-white);
+  border-color: var(--codex-cyan);
+  background: rgba(30, 144, 255, 0.18);
 }
 
-.home-page .menu-toggle:active {
+.home-page .menu-toggle:focus-visible {
   outline: 2px solid var(--codex-cyan);
-  outline-offset: 3px;
+  outline-offset: 4px;
 }
 
-.home-page .main-navigation {
+/* ========================================
+DROPDOWN NAVIGATION
+======================================== */
+
+.home-page .home-navigation {
   position: absolute;
-  top: 78px;
-  right: clamp(16px, 5vw, 60px);
-  z-index: 20;
+  top: calc(100% + 8px);
+  right: clamp(15px, 4vw, 48px);
+  z-index: 30;
   display: flex;
   flex-direction: column;
-  gap: 5px;
-  width: min(200px, calc(100vw - 32px));
+  gap: 4px;
+  width: min(290px, calc(100vw - 30px));
+  max-height: calc(100vh - 110px);
+  max-height: calc(100svh - 110px);
   padding: 10px;
-  background: var(--codex-bg);
-  border: 1px solid var(--codex-blue);
-  border-radius: 10px;
+  overflow-y: auto;
+  border: 1px solid var(--codex-border);
+  border-radius: 13px;
+  background: rgba(8, 11, 18, 0.98);
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4);
 }
 
-.home-page .main-navigation[hidden] {
+.home-page .home-navigation[hidden] {
   display: none;
 }
 
-.home-page .main-navigation a {
-  display: block;
-  padding: 13px 15px;
-  margin-top: 0;
-  margin-bottom: 0;
-  border-radius: 6px;
-  color: var(--codex-white);
-  font-size: 16px;
+.home-page .home-navigation a {
+  display: flex;
+  align-items: center;
+  min-height: 44px;
+  padding: 11px 13px;
+  border: 1px solid transparent;
+  border-radius: 8px;
+  color: var(--codex-muted);
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 15px;
+  font-weight: 600;
+  line-height: 1.4;
   text-decoration: none;
   transition:
-    background-color 0.5s ease,
-    color 0.5s ease;
+    color 0.25s ease,
+    background-color 0.25s ease,
+    border-color 0.25s ease;
 }
 
-.home-page .main-navigation a:hover,
-.home-page .main-navigation a:focus-visible {
-  background: var(--codex-muted);
-  color: var(--codex-cyan);
-  outline: none;
+.home-page .home-navigation a:hover {
+  border-color: rgba(0, 198, 255, 0.25);
+  background: rgba(30, 144, 255, 0.12);
+  color: var(--codex-white);
 }
 
-.home-page .lines {
-  display: block;
-  width: 100%;
-  height: 0;
-  border: 0;
-  border-top: 1px solid var(--codex-cyan);
-  margin: 0;
+.home-page .home-navigation a:focus-visible {
+  outline: 2px solid var(--codex-cyan);
+  outline-offset: 2px;
 }
+
+.home-page .home-navigation .home-community-link {
+  margin-top: 5px;
+  border-color: var(--codex-blue);
+  background: var(--codex-blue);
+  color: var(--codex-white);
+}
+
+.home-page .home-navigation .home-community-link:hover {
+  border-color: var(--codex-cyan);
+  background: var(--codex-cyan);
+  color: var(--codex-black);
+}
+
+/* ========================================
+SHARED PAGE WIDTH
+======================================== */
 
 .home-page .home-main {
-  display: flex;
-  flex: 1;
-  align-items: center;
-  justify-content: center;
   width: 100%;
-  padding: 70px 22px;
 }
 
-.home-page .home-introduction {
+.home-page .home-hero,
+.home-page .home-services,
+.home-page .home-projects,
+.home-page .home-contact {
   width: 100%;
-  max-width: 850px;
-  margin: 0 auto;
-  text-align: center;
+  max-width: 1200px;
+  margin-right: auto;
+  margin-left: auto;
+  padding-right: clamp(18px, 5vw, 60px);
+  padding-left: clamp(18px, 5vw, 60px);
+}
+
+/* ========================================
+HERO SECTION
+======================================== */
+
+.home-page .home-hero {
+  display: grid;
+  grid-template-columns: minmax(0, 1.2fr) minmax(0, 0.8fr);
+  align-items: center;
+  gap: clamp(30px, 6vw, 75px);
+  min-height: 590px;
+  padding-top: clamp(55px, 9vw, 100px);
+  padding-bottom: clamp(55px, 9vw, 100px);
+}
+
+.home-page .home-hero-content {
+  min-width: 0;
 }
 
 .home-page .home-eyebrow {
-  margin: 0 0 22px;
-  font-family: "Times New Roman", Times, serif;
+  margin: 0 0 15px;
   color: var(--codex-cyan);
-  font-size: clamp(16px, 3.5vw, 22px);
-  font-weight: 700;
-  letter-spacing: 4px;
-  line-height: 1.8;
-}
-
-.home-page .home-title {
-  margin: 0 0 20px;
-  font-size: clamp(34px, 7vw, 70px);
-  font-weight: 700;
-  line-height: 1.2;
-  overflow-wrap: anywhere;
-}
-
-.home-page .home-title span {
-  color: var(--codex-blue);
-  letter-spacing: 5px;
-}
-
-.home-page .home-description {
-  max-width: 650px;
-  margin: 0 auto;
   font-family: Arial, Helvetica, sans-serif;
-  color: var(--codex-muted);
-  font-size: clamp(16px, 2.2vw, 20px);
-  line-height: 1.7;
-}
-
-.codex-aim {
-  margin: 32px 0 0;
-  color: var(--codex-blue);
-  font-family: Cambria, Georgia, serif;
-  font-size: clamp(19px, 3vw, 25px);
-  font-weight: 700;
-  font-style: italic;
-  letter-spacing: 0.5px;
-}
-
-.home-page .home-footer {
-  width: 100%;
-  background: var(--codex-black);
-  border-top: 1px solid var(--codex-blue);
-  text-align: center;
-}
-
-.codex-motto {
-  font-size: clamp(18px, 3vw, 22px);
-  color: var(--codex-cyan);
-  font-style: italic;
-  margin-bottom: 0;
-  font-family: "Times New Roman", Times, serif;
-}
-
-.copyright {
-  margin: 0;
-  font-family: Arial, Helvetica, sans-serif;
-  color: var(--codex-muted);
-  font-size: clamp(14px, 1.5vw, 20px);
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 2px;
   line-height: 1.6;
 }
 
-@media (max-width: 480px) {
-  .home-page .home-header {
-    min-height: 70px;
-    padding: 12px 15px;
+.home-page .home-hero h1 {
+  max-width: 650px;
+  margin: 0;
+  color: var(--codex-white);
+  font-size: clamp(36px, 5.5vw, 64px);
+  font-weight: 800;
+  line-height: 1.12;
+  overflow-wrap: anywhere;
+}
+
+.home-page .home-highlight {
+  color: var(--codex-cyan);
+}
+
+.home-page .home-description {
+  max-width: 620px;
+  margin: 23px 0 18px;
+  color: var(--codex-muted);
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: clamp(15px, 1.7vw, 18px);
+  line-height: 1.85;
+}
+
+.home-page .home-motto {
+  margin: 0 0 25px;
+  color: var(--codex-white);
+  font-size: clamp(19px, 2.5vw, 24px);
+  font-style: italic;
+  line-height: 1.5;
+}
+
+/* ========================================
+BUTTONS
+======================================== */
+
+.home-page .home-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 12px;
+  margin-top: 24px;
+}
+
+.home-page .home-primary-button,
+.home-page .home-secondary-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  min-height: 48px;
+  padding: 12px 19px;
+  border: 1px solid var(--codex-blue);
+  border-radius: 9px;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 1.45;
+  text-align: center;
+  text-decoration: none;
+  transition:
+    background-color 0.25s ease,
+    border-color 0.25s ease,
+    color 0.25s ease,
+    box-shadow 0.25s ease,
+    transform 0.25s ease;
+}
+
+.home-page .home-primary-button {
+  background: var(--codex-blue);
+  color: var(--codex-white);
+  box-shadow: 0 5px 18px rgba(30, 144, 255, 0.15);
+}
+
+.home-page .home-primary-button span {
+  font-size: 19px;
+  transition: transform 0.25s ease;
+}
+
+.home-page .home-primary-button:hover {
+  border-color: var(--codex-cyan);
+  background: var(--codex-cyan);
+  color: var(--codex-black);
+  box-shadow: 0 7px 22px rgba(0, 198, 255, 0.16);
+  transform: translateY(-2px);
+}
+
+.home-page .home-primary-button:hover span {
+  transform: translateX(3px);
+}
+
+.home-page .home-secondary-button {
+  background: transparent;
+  color: var(--codex-white);
+}
+
+.home-page .home-secondary-button:hover {
+  background: rgba(30, 144, 255, 0.14);
+  border-color: var(--codex-cyan);
+  color: var(--codex-cyan);
+  transform: translateY(-2px);
+}
+
+.home-page .home-primary-button:focus-visible,
+.home-page .home-secondary-button:focus-visible {
+  outline: 2px solid var(--codex-cyan);
+  outline-offset: 4px;
+}
+
+/* ========================================
+HERO VISUAL
+======================================== */
+
+.home-page .home-visual {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-width: 0;
+  min-height: 330px;
+  padding: 30px 20px;
+  overflow: hidden;
+  border: 1px solid var(--codex-border);
+  border-radius: 24px;
+  background: linear-gradient(
+    145deg,
+    rgba(30, 144, 255, 0.09),
+    rgba(21, 28, 43, 0.95) 55%,
+    rgba(0, 198, 255, 0.06)
+  );
+}
+
+.home-page .home-visual-glow {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 210px;
+  height: 210px;
+  border-radius: 50%;
+  background: rgba(30, 144, 255, 0.15);
+  filter: blur(45px);
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+}
+
+.home-page .home-feature-logo {
+  position: relative;
+  z-index: 1;
+  display: block;
+  width: clamp(130px, 18vw, 200px);
+  max-width: 100%;
+  aspect-ratio: 1;
+  border: 2px solid rgba(0, 198, 255, 0.6);
+  border-radius: 50%;
+  object-fit: contain;
+  box-shadow: 0 0 30px rgba(30, 144, 255, 0.12);
+}
+
+.home-page .home-visual-title {
+  position: relative;
+  z-index: 1;
+  margin: 25px 0 6px;
+  color: var(--codex-white);
+  font-size: clamp(20px, 2.6vw, 26px);
+  font-weight: 700;
+  text-align: center;
+}
+
+.home-page .home-visual-description {
+  position: relative;
+  z-index: 1;
+  margin: 0;
+  color: var(--codex-muted);
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 14px;
+  line-height: 1.7;
+  text-align: center;
+}
+
+/* ========================================
+SERVICES
+======================================== */
+
+.home-page .home-services {
+  padding-top: 75px;
+  padding-bottom: 85px;
+  border-top: 1px solid var(--codex-border);
+}
+
+.home-page .home-section-heading {
+  max-width: 760px;
+  margin: 0 auto 38px;
+  text-align: center;
+}
+
+.home-page .home-section-heading h2,
+.home-page .home-projects h2,
+.home-page .home-contact h2 {
+  margin: 0;
+  color: var(--codex-white);
+  font-size: clamp(28px, 4vw, 42px);
+  line-height: 1.25;
+  text-wrap: balance;
+}
+
+.home-page .home-section-heading > p:last-child {
+  max-width: 650px;
+  margin: 16px auto 0;
+  color: var(--codex-muted);
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 15px;
+  line-height: 1.8;
+}
+
+.home-page .home-service-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 18px;
+}
+
+.home-page .home-service-card {
+  min-width: 0;
+  padding: 24px;
+  border: 1px solid var(--codex-border);
+  border-radius: 13px;
+  background: var(--codex-card);
+  transition:
+    border-color 0.25s ease,
+    background-color 0.25s ease,
+    transform 0.25s ease;
+}
+
+.home-page .home-service-card:hover {
+  border-color: var(--codex-blue);
+  background: #192438;
+  transform: translateY(-3px);
+}
+
+.home-page .home-service-number {
+  display: inline-block;
+  margin-bottom: 16px;
+  color: var(--codex-cyan);
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 13px;
+  font-weight: 800;
+  letter-spacing: 1px;
+}
+
+.home-page .home-service-card h3 {
+  margin: 0 0 12px;
+  color: var(--codex-white);
+  font-size: clamp(18px, 2vw, 21px);
+  line-height: 1.4;
+}
+
+.home-page .home-service-card p {
+  margin: 0;
+  color: var(--codex-muted);
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 14px;
+  line-height: 1.85;
+}
+
+/* ========================================
+PROJECTS SECTION
+======================================== */
+
+.home-page .home-projects {
+  padding-top: 65px;
+  padding-bottom: 65px;
+}
+
+.home-page .home-projects-content {
+  padding: clamp(28px, 5vw, 55px);
+  border: 1px solid var(--codex-border);
+  border-radius: 18px;
+  background: linear-gradient(
+    125deg,
+    rgba(30, 144, 255, 0.11),
+    var(--codex-card) 55%,
+    rgba(0, 198, 255, 0.05)
+  );
+}
+
+.home-page .home-projects-content > p:not(.home-eyebrow) {
+  max-width: 680px;
+  margin: 17px 0 0;
+  color: var(--codex-muted);
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 15px;
+  line-height: 1.85;
+}
+
+/* ========================================
+CONTACT SECTION
+======================================== */
+
+.home-page .home-contact {
+  padding-top: 75px;
+  padding-bottom: 85px;
+  text-align: center;
+}
+
+.home-page .home-contact > p:not(.home-eyebrow) {
+  max-width: 650px;
+  margin: 18px auto 24px;
+  color: var(--codex-muted);
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 15px;
+  line-height: 1.85;
+}
+
+.home-page .home-contact .home-primary-button {
+  margin-top: 5px;
+}
+
+/* ========================================
+FOOTER
+======================================== */
+
+.home-page .home-footer {
+  width: 100%;
+  padding: 28px 18px 22px;
+  border-top: 1px solid var(--codex-blue);
+  background: var(--codex-black);
+  text-align: center;
+}
+
+.home-page .home-footer-brand {
+  display: inline-block;
+  color: var(--codex-white);
+  font-size: 20px;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.home-page .home-footer-brand:hover {
+  color: var(--codex-cyan);
+}
+
+.home-page .codex-motto {
+  margin: 10px 0 18px;
+  color: var(--codex-cyan);
+  font-size: 19px;
+  font-style: italic;
+  line-height: 1.5;
+}
+
+.home-page .home-footer-navigation {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px 20px;
+  margin: 0 auto 20px;
+}
+
+.home-page .home-footer-navigation a {
+  color: var(--codex-muted);
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 13px;
+  text-decoration: none;
+  transition: color 0.25s ease;
+}
+
+.home-page .home-footer-navigation a:hover {
+  color: var(--codex-cyan);
+}
+
+.home-page .home-footer-navigation a:focus-visible {
+  outline: 2px solid var(--codex-cyan);
+  outline-offset: 4px;
+}
+
+.home-page .copyright {
+  margin: 0;
+  color: var(--codex-muted);
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 12px;
+  line-height: 1.7;
+}
+
+/* ========================================
+TABLETS
+======================================== */
+
+@media (max-width: 850px) {
+  .home-page .home-hero {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 35px;
+    min-height: auto;
   }
 
-  .home-page .home-logo {
-    width: 39px;
-    height: 39px;
+  .home-page .home-hero-content {
+    max-width: 700px;
+  }
+
+  .home-page .home-visual {
+    width: 100%;
+    max-width: 520px;
+    min-height: 300px;
+    margin: 0 auto;
+  }
+
+  .home-page .home-feature-logo {
+    width: clamp(130px, 25vw, 180px);
+  }
+
+  .home-page .home-service-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+/* ========================================
+MOBILE
+======================================== */
+
+@media (max-width: 520px) {
+  .home-page .home-header {
+    min-height: 70px;
+    padding: 11px 14px;
   }
 
   .home-page .home-brand {
     gap: 9px;
   }
 
-  .home-page .home-brand-name {
-    font-size: 15px;
-  }
-
-  .home-page .menu-toggle {
+  .home-page .home-logo {
     width: 42px;
     height: 42px;
   }
 
-  .home-page .main-navigation {
-    top: 70px;
-    right: 15px;
-  }
-
-  .home-page .home-main {
-    padding: 60px 20px;
-  }
-
-  .home-page .home-eyebrow {
-    margin-bottom: 18px;
-    font-size: 14px;
+  .home-page .home-brand-name {
+    font-size: 25px;
     letter-spacing: 2px;
   }
 
-  .home-page .home-title {
-    margin-bottom: 20px;
+  .home-page .home-brand-subtitle {
+    font-size: 9px;
+    letter-spacing: 1px;
+  }
+
+  .home-page .home-hero,
+  .home-page .home-services,
+  .home-page .home-projects,
+  .home-page .home-contact {
+    padding-right: 17px;
+    padding-left: 17px;
+  }
+
+  .home-page .home-hero {
+    gap: 30px;
+    padding-top: 52px;
+    padding-bottom: 48px;
+  }
+
+  .home-page .home-hero h1 {
+    font-size: clamp(34px, 9vw, 45px);
   }
 
   .home-page .home-description {
+    margin-top: 18px;
+    font-size: 14px;
     line-height: 1.8;
   }
 
-  .home-page .codex-motto {
-    margin-top: 25px;
+  .home-page .home-actions {
+    align-items: stretch;
+    flex-direction: column;
+    gap: 10px;
   }
 
-  .home-page .home-footer {
-    padding: 22px 15px 18px;
+  .home-page .home-actions a {
+    width: 100%;
+    min-height: 48px;
+  }
+
+  .home-page .home-visual {
+    min-height: 265px;
+    padding: 25px 16px;
+    border-radius: 16px;
+  }
+
+  .home-page .home-feature-logo {
+    width: 125px;
+  }
+
+  .home-page .home-services {
+    padding-top: 55px;
+    padding-bottom: 55px;
+  }
+
+  .home-page .home-section-heading {
+    margin-bottom: 28px;
+  }
+
+  .home-page .home-section-heading h2,
+  .home-page .home-projects h2,
+  .home-page .home-contact h2 {
+    font-size: clamp(26px, 7vw, 33px);
+  }
+
+  .home-page .home-service-grid {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 12px;
+  }
+
+  .home-page .home-service-card {
+    padding: 21px;
+  }
+
+  .home-page .home-projects {
+    padding-top: 35px;
+    padding-bottom: 35px;
+  }
+
+  .home-page .home-projects-content {
+    padding: 25px 20px;
+    border-radius: 14px;
+  }
+
+  .home-page .home-contact {
+    padding-top: 55px;
+    padding-bottom: 60px;
+  }
+
+  .home-page .home-footer-navigation {
+    gap: 14px;
   }
 }
 
+/* ========================================
+REDUCED MOTION
+======================================== */
+
 @media (prefers-reduced-motion: reduce) {
-  .home-page .menu-toggle,
-  .home-page .menu-toggle span,
-  .home-page .main-navigation a {
-    transition: none;
+  .home-page *,
+  .home-page *::before,
+  .home-page *::after {
+    scroll-behavior: auto !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
   }
 }
