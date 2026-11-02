@@ -1,127 +1,87 @@
-const aboutAccordionButtons = document.querySelectorAll(
-  ".about-page .about-accordion-button, " + ".about-page .about-section-toggle",
-);
+(function initializeCodexAbout() {
+  "use strict";
 
-if (aboutAccordionButtons.length > 0) {
-  aboutAccordionButtons.forEach(function (button) {
-    const controlledId = button.getAttribute("aria-controls");
+  const aboutPage = document.querySelector(".about-page");
 
-    let content = controlledId ? document.getElementById(controlledId) : null;
+  if (!aboutPage) return;
 
-    const card = button.closest(
-      ".about-card, .about-accordion-item, .about-section",
-    );
+  // Update the footer year automatically.
+  const currentYear = aboutPage.querySelector("#aboutCurrentYear");
 
-    if (!content && card) {
-      content = card.querySelector(
-        ".about-card-content, " +
-          ".about-accordion-content, " +
-          ".about-section-content",
-      );
+  if (currentYear) {
+    currentYear.textContent = new Date().getFullYear();
+  }
+
+  // Find all accordion buttons.
+  const accordionButtons = aboutPage.querySelectorAll(
+    ".about-accordion-button, .about-section-toggle",
+  );
+
+  if (!accordionButtons.length) return;
+
+  function closeSection(button) {
+    const contentId = button.getAttribute("aria-controls");
+    const content = contentId
+      ? aboutPage.querySelector(`#${CSS.escape(contentId)}`)
+      : null;
+
+    button.setAttribute("aria-expanded", "false");
+
+    const icon = button.querySelector(".about-accordion-icon, .toggle-icon");
+
+    if (icon) {
+      icon.textContent = "+";
     }
 
-    if (!content) {
-      return;
-    }
-
-    let icon = null;
-
-    if (card) {
-      icon = card.querySelector(".about-toggle-icon");
-    }
-
-    if (!icon) {
-      icon = button.querySelector(".about-toggle-icon");
-    }
-
-    function closeAboutSection() {
-      button.setAttribute("aria-expanded", "false");
-
+    if (content) {
       content.hidden = true;
+    }
+  }
 
-      if (card) {
-        card.classList.remove("active");
-      }
+  function openSection(button) {
+    const contentId = button.getAttribute("aria-controls");
+    const content = contentId
+      ? aboutPage.querySelector(`#${CSS.escape(contentId)}`)
+      : null;
 
-      if (icon) {
-        icon.textContent = "+";
-      }
+    button.setAttribute("aria-expanded", "true");
+
+    const icon = button.querySelector(".about-accordion-icon, .toggle-icon");
+
+    if (icon) {
+      icon.textContent = "−";
     }
 
-    function openAboutSection() {
-      button.setAttribute("aria-expanded", "true");
-
+    if (content) {
       content.hidden = false;
+    }
+  }
 
-      if (card) {
-        card.classList.add("active");
-      }
+  accordionButtons.forEach((button) => {
+    const contentId = button.getAttribute("aria-controls");
+    const content = contentId
+      ? aboutPage.querySelector(`#${CSS.escape(contentId)}`)
+      : null;
 
-      if (icon) {
-        icon.textContent = "−";
-      }
+    // Start with every accordion section closed.
+    button.setAttribute("aria-expanded", "false");
+
+    if (content) {
+      content.hidden = true;
     }
 
-    if (
-      button.getAttribute("aria-expanded") === "true" ||
-      (card && card.classList.contains("active"))
-    ) {
-      openAboutSection();
-    } else {
-      closeAboutSection();
-    }
-
-    button.addEventListener("click", function () {
+    button.addEventListener("click", () => {
       const isOpen = button.getAttribute("aria-expanded") === "true";
-      aboutAccordionButtons.forEach(function (otherButton) {
-        if (otherButton === button) {
-          return;
-        }
 
-        const otherId = otherButton.getAttribute("aria-controls");
-
-        let otherContent = otherId ? document.getElementById(otherId) : null;
-
-        const otherCard = otherButton.closest(
-          ".about-card, " + ".about-accordion-item, " + ".about-section",
-        );
-
-        if (!otherContent && otherCard) {
-          otherContent = otherCard.querySelector(
-            ".about-card-content, " +
-              ".about-accordion-content, " +
-              ".about-section-content",
-          );
-        }
-
-        otherButton.setAttribute("aria-expanded", "false");
-
-        if (otherContent) {
-          otherContent.hidden = true;
-        }
-
-        if (otherCard) {
-          otherCard.classList.remove("active");
-        }
-
-        let otherIcon = otherCard
-          ? otherCard.querySelector(".about-toggle-icon")
-          : null;
-
-        if (!otherIcon) {
-          otherIcon = otherButton.querySelector(".about-toggle-icon");
-        }
-
-        if (otherIcon) {
-          otherIcon.textContent = "+";
-        }
+      // Close all sections before opening another.
+      accordionButtons.forEach((otherButton) => {
+        closeSection(otherButton);
       });
 
-      if (isOpen) {
-        closeAboutSection();
-      } else {
-        openAboutSection();
+      // Clicking an open section keeps it closed.
+      if (!isOpen) {
+        openSection(button);
       }
     });
   });
-}
+})();
