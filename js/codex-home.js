@@ -1,125 +1,72 @@
-const menuToggle = document.getElementById("menuToggle");
-const mainNavigation = document.getElementById("mainNavigation");
+(function initializeCodexHome() {
+  "use strict";
 
-if (menuToggle && mainNavigation) {
-function closeMainNavigation() {
-mainNavigation.hidden = true;
-menuToggle.setAttribute("aria-expanded", "false");
-}
+  const homePage = document.querySelector(".home-page");
 
-function toggleMainNavigation() {
-const isCurrentlyOpen = menuToggle.getAttribute("aria-expanded") === "true";
+  if (!homePage) return;
 
-mainNavigation.hidden = isCurrentlyOpen;  
+  const menuToggle = homePage.querySelector("#menuToggle");
+  const mainNavigation = homePage.querySelector("#mainNavigation");
+  const currentYear = homePage.querySelector("#homeCurrentYear");
 
-menuToggle.setAttribute("aria-expanded", String(!isCurrentlyOpen));
+  // Update the copyright year automatically.
+  if (currentYear) {
+    currentYear.textContent = new Date().getFullYear();
+  }
 
-}
-if (menuToggle.getAttribute("aria-expanded") === "true") {
-mainNavigation.hidden = false;
-} else {
-mainNavigation.hidden = true;
-menuToggle.setAttribute("aria-expanded", "false");
-}
-menuToggle.addEventListener("click", function (event) {
-event.stopPropagation();
-toggleMainNavigation();
-});
-mainNavigation.querySelectorAll("a").forEach(function (link) {
-link.addEventListener("click", closeMainNavigation);
-});
-document.addEventListener("click", function (event) {
-if (
-!mainNavigation.contains(event.target) &&
-!menuToggle.contains(event.target)
-) {
-closeMainNavigation();
-}
-});
-document.addEventListener("keydown", function (event) {
-if (event.key === "Escape" && !mainNavigation.hidden) {
-closeMainNavigation();
-menuToggle.focus();
-}
-});
-}
+  // Stop if the navigation elements are missing.
+  if (!menuToggle || !mainNavigation) return;
 
-const menuItems = document.querySelectorAll(".menu-item");
+  // Keep the mobile navigation closed when the page loads.
+  mainNavigation.hidden = true;
+  menuToggle.setAttribute("aria-expanded", "false");
+  menuToggle.setAttribute("aria-label", "Open navigation menu");
 
-if (menuItems.length > 0) {
-menuItems.forEach(function (item) {
-const button = item.querySelector(".menu-button");
-const description = item.querySelector(".menu-description");
-const plusIcon = item.querySelector(".menu-plus");
+  // Open or close the navigation menu.
+  function toggleNavigation() {
+    const isOpen = menuToggle.getAttribute("aria-expanded") === "true";
 
-if (!button || !description) {  
-  return;  
-}  
+    mainNavigation.hidden = isOpen;
+    menuToggle.setAttribute("aria-expanded", String(!isOpen));
+    menuToggle.setAttribute(
+      "aria-label",
+      isOpen ? "Open navigation menu" : "Close navigation menu",
+    );
+  }
 
-function closeMenuItem() {  
-  item.classList.remove("active");  
-  button.setAttribute("aria-expanded", "false");  
-  description.hidden = true;  
+  // Close the navigation menu.
+  function closeNavigation() {
+    mainNavigation.hidden = true;
+    menuToggle.setAttribute("aria-expanded", "false");
+    menuToggle.setAttribute("aria-label", "Open navigation menu");
+  }
 
-  if (plusIcon) {  
-    plusIcon.textContent = "+";  
-  }  
-}  
+  // Toggle the menu when the hamburger button is clicked.
+  menuToggle.addEventListener("click", toggleNavigation);
 
-function openMenuItem() {  
-  item.classList.add("active");  
-  button.setAttribute("aria-expanded", "true");  
-  description.hidden = false;  
+  // Close the menu after a navigation link is selected.
+  mainNavigation.querySelectorAll("a").forEach(function (link) {
+    link.addEventListener("click", closeNavigation);
+  });
 
-  if (plusIcon) {  
-    plusIcon.textContent = "−";  
-  }  
-}  
+  // Close the menu when the user clicks outside it.
+  document.addEventListener("click", function (event) {
+    const clickedInsideMenu = mainNavigation.contains(event.target);
+    const clickedToggle = menuToggle.contains(event.target);
 
-if (  
-  item.classList.contains("active") ||  
-  button.getAttribute("aria-expanded") === "true"  
-) {  
-  openMenuItem();  
-} else {  
-  closeMenuItem();  
-}  
+    if (!clickedInsideMenu && !clickedToggle) {
+      closeNavigation();
+    }
+  });
 
-button.addEventListener("click", function () {  
-  const isOpen = button.getAttribute("aria-expanded") === "true";  
-
-  menuItems.forEach(function (otherItem) {  
-    if (otherItem === item) {  
-      return;  
-    }  
-
-    const otherButton = otherItem.querySelector(".menu-button");  
-
-    const otherDescription = otherItem.querySelector(".menu-description");  
-
-    const otherPlus = otherItem.querySelector(".menu-plus");  
-
-    otherItem.classList.remove("active");  
-
-    if (otherButton) {  
-      otherButton.setAttribute("aria-expanded", "false");  
-    }  
-
-    if (otherDescription) {  
-      otherDescription.hidden = true;  
-    }  
-
-    if (otherPlus) {  
-      otherPlus.textContent = "+";  
-    }  
-  });  
-
-  if (isOpen) {  
-    closeMenuItem();  
-  } else {  
-    openMenuItem();  
-  }  
-});
-
-});
-                          }
+  // Close the menu with Escape and return focus to the button.
+  document.addEventListener("keydown", function (event) {
+    if (
+      event.key === "Escape" &&
+      menuToggle.getAttribute("aria-expanded") === "true"
+    ) {
+      closeNavigation();
+      menuToggle.focus();
+    }
+  });
+})();
