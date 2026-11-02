@@ -1,235 +1,220 @@
 <!doctype html>
 <html lang="en">
   <head>
-    <meta charset="UTF-8" >
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" >
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
     <meta
       name="description"
-      content="Tell CODEX Web and Design about your next website, graphic design, animation, video editing, or digital project."
-    >
-    <title>CODEX | Project Enquiry</title>
-    <link rel="stylesheet" href="css/codex-enquiry.css" >
-    <script src="js/codex-enquiry.js" defer></script>
+      content="Tell CODEX Web and Design about your project. Share your ideas and let us help bring them to life."
+    />
+    <meta name="author" content="Perfect Foko Codex15P" />
+
+    <title>Project Inquiry | CODEX Web and Design</title>
+
+    <link rel="stylesheet" href="css/codex-enquiry.css" />
   </head>
-  <body class="project-enquiry-page">
+
+  <body class="enquiry-page">
+    <!-- HEADER -->
     <header class="enquiry-header">
-      <div class="enquiry-brand" >
+      <a href="codex-home.html" class="enquiry-brand">
         <img
           src="images/codex-logo.png"
-          alt="CODEX Logo"
+          alt="CODEX logo"
           class="enquiry-logo"
-        >
+        />
 
-        <div class="enquiry-brand-text">
-          <span class="enquiry-brand-name"> CODEX </span>
-          <span class="enquiry-brand-subtitle"> WEB AND DESIGN </span>
-        </div>
-      </div>
-
-      <a href="codex-project.html" class="enquiry-back-button">
-        &larr; Back to Projects
+        <span class="enquiry-brand-text">
+          <strong>CODEX</strong>
+          <small>Web and Design</small>
+        </span>
       </a>
+
+      <a href="codex-home.html" class="enquiry-back-link"> Home </a>
     </header>
 
-    <main class="enquiry-main">
+    <main>
       <!-- INTRODUCTION -->
-      <section class="enquiry-intro">
-        <p class="enquiry-eyebrow">LET'S BUILD SOMETHING GREAT</p>
+      <section class="enquiry-hero">
+        <p class="enquiry-eyebrow">LET'S BUILD SOMETHING</p>
 
-        <h1>Tell Us About Your <span>Project.</span></h1>
+        <h1>
+          Start Your
+          <span>Project</span>
+        </h1>
 
-        <p class="enquiry-intro-description">
-          Every great project starts with an idea. Tell us what you have in
-          mind, and the CODEX team will use the information you provide to
-          understand your vision and discuss the next steps.
-        </p>
-
-        <p class="codex-aim">
-          &middot; Turning Your Ideas Into Reality &middot;
+        <p class="enquiry-introduction">
+          Every great project begins with an idea. Tell us what you have in
+          mind, and let's explore how CODEX can help bring it to life.
         </p>
       </section>
 
-      <section class="enquiry-form-section">
-        <div class="enquiry-form-heading">
+      <!-- INQUIRY FORM -->
+      <section class="enquiry-section">
+        <div class="enquiry-section-heading">
           <h2>Project Details</h2>
 
-          <p>Complete the form below so we can understand what you need.</p>
-
-          <p class="enquiry-required-note">
-            Fields marked with * are required.
+          <p>
+            Complete the form with as much information as possible. Your details
+            will be prepared into a WhatsApp message for you to review and send.
           </p>
         </div>
 
-        <form id="codexEnquiryForm" class="codex-enquiry-form">
-          <div class="enquiry-form-group">
-            <label for="clientName"> Your Full Name * </label>
+        <form id="codexEnquiryForm" class="enquiry-form">
+          <div class="enquiry-field">
+            <label for="clientName">Your Name</label>
 
             <input
               type="text"
               id="clientName"
               name="clientName"
-              placeholder="Enter your full name"
-              autocomplete="name"
+              placeholder="Enter your name"
               required
-            >
+            />
           </div>
-          <div class="enquiry-form-group">
-            <label for="clientWhatsApp"> WhatsApp Number * </label>
+
+          <div class="enquiry-field">
+            <label for="clientWhatsApp">WhatsApp Number</label>
 
             <input
               type="tel"
               id="clientWhatsApp"
               name="clientWhatsApp"
               placeholder="Enter your WhatsApp number"
-              autocomplete="tel"
               required
-            >
-
-            <small>
-              Include your country code if possible, for example, +234 for
-              Nigeria.
-            </small>
+            />
           </div>
-          <div class="enquiry-form-group">
-            <label for="projectType"> What Service Do You Need? * </label>
+
+          <div class="enquiry-field">
+            <label for="projectType">Project Category</label>
 
             <select id="projectType" name="projectType" required>
-              <option value="" selected disabled>Select a service</option>
-
+              <option value="">Select a category</option>
               <option value="Web Development">Web Development</option>
-
               <option value="Graphic Design">Graphic Design</option>
-
               <option value="Video Editing">Video Editing</option>
-
               <option value="Animation">Animation</option>
-
               <option value="Microsoft Applications">
                 Microsoft Applications
               </option>
-
-              <option value="Advertising and Promotions">
-                Advertising and Promotions
-              </option>
-
-              <option value="Multiple Services">Multiple Services</option>
-
-              <option value="Other">Other / Not Listed</option>
+              <option value="Digital Solutions">Digital Solutions</option>
+              <option value="Other">Other</option>
             </select>
           </div>
-          <div class="enquiry-form-group">
-            <label for="projectTitle"> Project Title </label>
+
+          <div class="enquiry-field">
+            <label for="projectTitle">Project Title</label>
 
             <input
               type="text"
               id="projectTitle"
               name="projectTitle"
-              placeholder="Give your project a name (optional)"
-            >
+              placeholder="Give your project a name"
+              required
+            />
           </div>
-          <div class="enquiry-form-group">
-            <label for="projectDescription"> Describe Your Project * </label>
+
+          <div class="enquiry-field enquiry-field-full">
+            <label for="projectDescription">Project Description</label>
 
             <textarea
               id="projectDescription"
               name="projectDescription"
               rows="6"
-              placeholder="Explain your idea, the features you need, or the problem you want us to solve..."
+              placeholder="Describe what you want us to create..."
               required
             ></textarea>
-
-            <small>
-              The more clearly you explain your idea, the easier it is for us to
-              understand it.
-            </small>
           </div>
-          <div class="enquiry-form-group">
-            <label for="projectBudget"> Estimated Budget </label>
 
-            <select id="projectBudget" name="projectBudget">
-              <option value="" selected>Prefer not to say</option>
+          <div class="enquiry-field">
+            <label for="projectBudget">Estimated Budget</label>
 
-              <option value="Below ₦10,000">Below ₦10,000</option>
-
-              <option value="₦10,000 – ₦30,000">₦10,000 – ₦30,000</option>
-
-              <option value="₦30,000 – ₦70,000">₦30,000 – ₦70,000</option>
-
-              <option value="₦70,000 – ₦150,000">₦70,000 – ₦150,000</option>
-
-              <option value="Above ₦150,000">Above ₦150,000</option>
-
-              <option value="Need guidance">
-                I need guidance with pricing
-              </option>
-            </select>
+            <input
+              type="text"
+              id="projectBudget"
+              name="projectBudget"
+              placeholder="Your estimated budget"
+            />
           </div>
-          <div class="enquiry-form-group">
-            <label for="projectDeadline"> Preferred Completion Date </label>
 
-            <input type="date" id="projectDeadline" name="projectDeadline" >
+          <div class="enquiry-field">
+            <label for="projectDeadline">Expected Deadline</label>
 
-            <small>
-              This is your preferred date, not a guaranteed delivery date.
-            </small>
+            <input type="date" id="projectDeadline" name="projectDeadline" />
           </div>
-          <div class="enquiry-form-group">
-            <label for="projectReferences"> Reference Links </label>
+
+          <div class="enquiry-field enquiry-field-full">
+            <label for="projectReferences">
+              Reference Links or Additional Information
+            </label>
 
             <textarea
               id="projectReferences"
               name="projectReferences"
-              rows="3"
-              placeholder="Paste any example websites, designs, videos, or other references (optional)."
+              rows="4"
+              placeholder="Paste useful links or add extra information here..."
             ></textarea>
           </div>
-          <div class="enquiry-notice">
-            <p>
-              <strong>Before you submit:</strong>
-              Check that your contact information and project details are
-              correct. The next step will prepare a WhatsApp message for you to
-              review and send.
-            </p>
-          </div>
-          <div class="enquiry-form-actions">
-            <button type="submit" class="enquiry-submit-button">
-              Prepare WhatsApp Enquiry
-              <span aria-hidden="true">&rarr;</span>
-            </button>
 
-            <button type="reset" class="enquiry-reset-button">
-              Clear Form
-            </button>
-          </div>
           <p
             id="enquiryFormMessage"
             class="enquiry-form-message"
             role="status"
             aria-live="polite"
           ></p>
+
+          <div class="enquiry-submit-area">
+            <button type="submit" class="enquiry-submit-button">
+              Prepare WhatsApp Inquiry
+            </button>
+
+            <p>
+              Your message will open in WhatsApp for you to review before
+              sending.
+            </p>
+          </div>
         </form>
       </section>
+
+      <!-- CLOSING SECTION -->
       <section class="enquiry-closing">
-        <h2>Not Sure Where to Start?</h2>
+        <p class="enquiry-eyebrow">YOUR IDEA MATTERS</p>
+
+        <h2>Let's Create Something Meaningful.</h2>
 
         <p>
-          That's okay. Explain what you have in mind, and we can discuss the
-          possibilities together.
+          At CODEX, we believe every idea has the potential to become something
+          remarkable.
         </p>
 
         <a href="codex-gallery.html" class="enquiry-gallery-button">
-          Explore Our Projects
+          Explore Our Projects work
         </a>
       </section>
     </main>
 
+    <!-- FOOTER -->
     <footer class="enquiry-footer">
-      <p class="codex-motto">You Think &middot; We Create</p>
+      <div class="enquiry-footer-brand">
+        <strong>CODEX Web and Design</strong>
+        <p>You Think. We Create.</p>
+      </div>
 
-      <p class="copyright">
-        &copy; <span id="enquiryCurrentYear"></span>
+      <nav class="enquiry-footer-navigation" aria-label="Footer navigation">
+        <a href="codex-home.html">Home</a>
+        <a href="codex-gallery.html">Projects</a>
+        <a href="codex-project.html">Preview</a>
+        <a href="codex-team.html">Team</a>
+        <a href="codex-about.html">About</a>
+      </nav>
+
+      <p class="enquiry-copyright">
+        &copy; <span id="enquiryCurrentYear">2026</span>
         CODEX Web and Design. All rights reserved.
       </p>
     </footer>
+
+    <script src="js/codex-enquiry.js"></script>
   </body>
 </html>
