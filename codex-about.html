@@ -1,418 +1,249 @@
 <!doctype html>
 <html lang="en">
   <head>
-    <meta charset="UTF-8" >
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" >
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta
       name="description"
-      content="Discover the vision, services, values, creative team, and digital approach behind CODEX Web and Design."
-    >
-    <meta name="author" content="Perfect Foko Codex15P" >
-    <title>CODEX | About Us</title>
-    <link rel="stylesheet" href="css/codex-about.css" >
-    <script src="js/codex-about.js" defer></script>
+      content="Discover the story, services, values, team, and creative approach behind CODEX Web and Design."
+    />
+    <meta name="author" content="Perfect Foko Codex15P" />
+    <meta name="theme-color" content="#0B0F19" />
+    <title>About Us | CODEX Web and Design</title>
+
+    <link rel="stylesheet" href="css/codex-about.css" />
   </head>
+
   <body class="about-page">
     <header class="about-header">
-      <div class="about-brand" >
+      <a
+        class="about-brand"
+        href="index.html"
+        aria-label="CODEX Web and Design entry page"
+      >
         <img
           src="images/codex-logo.png"
-          alt="CODEX logo"
+          alt="CODEX Web and Design logo"
           class="about-logo"
-          aria-hidden="true"
-        >
+        />
+        <span>CODEX Web and Design</span>
+      </a>
 
-        <div class="about-brand-text">
-          <span class="about-brand-name"> CODEX </span>
-          <span class="about-brand-subtitle"> WEB AND DESIGN </span>
-        </div>
-      </div>
-
-      <a href="codex-home.html" class="about-home-link"> Home </a>
+      <a href="codex-home.html" class="about-home-link">Home</a>
     </header>
 
     <main class="about-main">
       <section class="about-welcome">
-        <p class="about-eyebrow">
-          IDEAS &middot; CREATIVITY &middot; TECHNOLOGY
-        </p>
+        <p class="about-eyebrow">GET TO KNOW US</p>
 
-        <h1>Ideas Into Digital Solutions</h1>
+        <h1>About CODEX Web and Design</h1>
 
         <p class="about-description">
-          Welcome to CODEX Web and Design, where creativity meets technology. We
-          transform ideas into meaningful digital experiences through web
-          development, graphic design, animation, and other digital solutions.
+          We are a creative digital team focused on turning ideas into
+          meaningful digital experiences through technology, design, and
+          innovation.
         </p>
 
-        <p class="codex-aim">
-          &middot; Turning Your Ideas Into Reality &middot;
-        </p>
+        <p class="codex-aim">You Think. We Create.</p>
       </section>
 
-      <section class="about-accordion-section" aria-label="Learn about CODEX">
-        <p class="about-section-intro">
-          Discover what drives us, what we create, and how we turn ideas into
-          reality.
-        </p>
-
-        <section class="about-accordion-item">
-          <h2 class="about-accordion-heading">
-            <button
-              type="button"
-              class="about-accordion-button"
-              aria-expanded="false"
-              aria-controls="about-story-content"
-              id="about-story-button"
-            >
-              <span>OUR STORY</span>
-
-              <span class="about-toggle-icon" aria-hidden="true">+</span>
-            </button>
-          </h2>
-
-          <div
-            class="about-accordion-content"
-            id="about-story-content"
-            role="region"
-            aria-labelledby="about-story-button"
-            hidden
+      <section class="about-content">
+        <article class="about-section">
+          <button
+            type="button"
+            class="about-accordion-button"
+            aria-expanded="false"
+            aria-controls="aboutStory"
           >
+            <span>Our Story</span>
+            <span class="about-accordion-icon" aria-hidden="true">+</span>
+          </button>
+
+          <div class="about-section-content" id="aboutStory" hidden>
             <p>
               CODEX Web and Design was built around a simple idea: creativity
-              and technology can work together to turn imagination into
-              something real.
+              and technology can work together to turn ordinary ideas into
+              useful digital solutions.
             </p>
-
             <p>
-              What began as an interest in creating digital experiences
-              continues to grow into a creative venture focused on websites,
-              visual design, animation, and practical digital solutions.
-            </p>
-
-            <p>
-              We believe that every great project starts with an idea. Our goal
-              is to help bring those ideas to life through learning, creativity,
-              collaboration, and continuous improvement.
+              What started as an interest in digital creation continues to grow
+              into a platform for learning, building, and delivering creative
+              work.
             </p>
           </div>
-        </section>
+        </article>
 
-        <section class="about-accordion-item">
-          <h2 class="about-accordion-heading">
-            <button
-              type="button"
-              class="about-accordion-button"
-              aria-expanded="false"
-              aria-controls="about-services-content"
-              id="about-services-button"
-            >
-              <span>WHAT WE DO</span>
-
-              <span class="about-toggle-icon" aria-hidden="true">+</span>
-            </button>
-          </h2>
-
-          <div
-            class="about-accordion-content"
-            id="about-services-content"
-            role="region"
-            aria-labelledby="about-services-button"
-            hidden
+        <article class="about-section">
+          <button
+            type="button"
+            class="about-accordion-button"
+            aria-expanded="false"
+            aria-controls="aboutServices"
           >
+            <span>What We Do</span>
+            <span class="about-accordion-icon" aria-hidden="true">+</span>
+          </button>
+
+          <div class="about-section-content" id="aboutServices" hidden>
             <p>
-              We combine creativity and digital skills to develop solutions that
-              help individuals, businesses, and brands communicate their ideas.
+              We provide digital and creative services designed to help
+              individuals, businesses, and organisations present their ideas
+              professionally.
             </p>
 
-            <ul class="about-services-list">
-              <li>
-                <strong>Web Development:</strong>
-                Creating responsive and functional websites.
-              </li>
-
-              <li>
-                <strong>Graphic Design:</strong>
-                Producing visual designs that communicate ideas clearly.
-              </li>
-
-              <li>
-                <strong>Animation and Video:</strong>
-                Bringing concepts to life through motion and visual
-                storytelling.
-              </li>
-
-              <li>
-                <strong>Digital and Office Services:</strong>
-                Providing practical digital solutions using productivity and
-                design applications.
-              </li>
+            <ul>
+              <li>Website development</li>
+              <li>Graphic design</li>
+              <li>Video editing</li>
+              <li>Animation and motion graphics</li>
+              <li>Microsoft Office applications</li>
+              <li>Digital and creative solutions</li>
             </ul>
+          </div>
+        </article>
 
+        <article class="about-section">
+          <button
+            type="button"
+            class="about-accordion-button"
+            aria-expanded="false"
+            aria-controls="aboutTeam"
+          >
+            <span>Our Team</span>
+            <span class="about-accordion-icon" aria-hidden="true">+</span>
+          </button>
+
+          <div class="about-section-content" id="aboutTeam" hidden>
             <p>
-              We approach every project with a focus on creativity, usability,
-              and continuous learning.
+              Our team brings together different interests, creative abilities,
+              and technical skills. We believe collaboration helps us learn,
+              improve, and produce better work.
             </p>
 
-            <a href="codex-gallery.html" class="about-action-button">
-              Explore Our Services
+            <a href="codex-team.html" class="about-inline-link">
+              Meet Our Team
             </a>
           </div>
-        </section>
+        </article>
 
-        <section class="about-accordion-item">
-          <h2 class="about-accordion-heading">
-            <button
-              type="button"
-              class="about-accordion-button"
-              aria-expanded="false"
-              aria-controls="about-team-content"
-              id="about-team-button"
-            >
-              <span>OUR TEAM</span>
-
-              <span class="about-toggle-icon" aria-hidden="true">+</span>
-            </button>
-          </h2>
-
-          <div
-            class="about-accordion-content"
-            id="about-team-content"
-            role="region"
-            aria-labelledby="about-team-button"
-            hidden
+        <article class="about-section">
+          <button
+            type="button"
+            class="about-accordion-button"
+            aria-expanded="false"
+            aria-controls="aboutApproach"
           >
+            <span>Our Approach</span>
+            <span class="about-accordion-icon" aria-hidden="true">+</span>
+          </button>
+
+          <div class="about-section-content" id="aboutApproach" hidden>
             <p>
-              CODEX brings together creative individuals with different skills
-              and interests. From web development to graphic design, video
-              editing, and animation, each member contributes to our shared
-              creative vision.
+              We approach every project with creativity, planning, attention to
+              detail, and a willingness to improve.
             </p>
-
             <p>
-              We believe that collaboration allows different talents and ideas
-              to come together to create better digital experiences.
-            </p>
-
-            <p>
-              Together, we continue to learn, experiment, develop our skills,
-              and work towards building meaningful projects.
-            </p>
-
-            <a href="codex-team.html" class="about-action-button">
-              Meet the Full Team
-            </a>
-          </div>
-        </section>
-
-        <section class="about-accordion-item">
-          <h2 class="about-accordion-heading">
-            <button
-              type="button"
-              class="about-accordion-button"
-              aria-expanded="false"
-              aria-controls="about-approach-content"
-              id="about-approach-button"
-            >
-              <span>OUR APPROACH</span>
-
-              <span class="about-toggle-icon" aria-hidden="true">+</span>
-            </button>
-          </h2>
-
-          <div
-            class="about-accordion-content"
-            id="about-approach-content"
-            role="region"
-            aria-labelledby="about-approach-button"
-            hidden
-          >
-            <p>
-              We believe that good digital work begins with understanding the
-              idea behind a project. Before creating a solution, we consider its
-              purpose, audience, and intended experience.
-            </p>
-
-            <p>
-              Our approach combines planning, creativity, practical
-              implementation, testing, and improvement.
-            </p>
-
-            <p>
-              We also value continuous learning because technology evolves,
-              creative possibilities expand, and every project presents an
-              opportunity to improve.
+              Our goal is to understand the idea first, then work towards a
+              solution that communicates it clearly and effectively.
             </p>
           </div>
-        </section>
+        </article>
 
-        <section class="about-accordion-item">
-          <h2 class="about-accordion-heading">
-            <button
-              type="button"
-              class="about-accordion-button"
-              aria-expanded="false"
-              aria-controls="about-why-content"
-              id="about-why-button"
-            >
-              <span>WHY CODEX?</span>
-
-              <span class="about-toggle-icon" aria-hidden="true">+</span>
-            </button>
-          </h2>
-
-          <div
-            class="about-accordion-content"
-            id="about-why-content"
-            role="region"
-            aria-labelledby="about-why-button"
-            hidden
+        <article class="about-section">
+          <button
+            type="button"
+            class="about-accordion-button"
+            aria-expanded="false"
+            aria-controls="aboutWhyCodex"
           >
+            <span>Why CODEX?</span>
+            <span class="about-accordion-icon" aria-hidden="true">+</span>
+          </button>
+
+          <div class="about-section-content" id="aboutWhyCodex" hidden>
             <p>
-              At CODEX, we bring creativity, technology, and collaboration
-              together to develop digital experiences around real ideas.
+              We value creativity, continuous learning, teamwork, reliability,
+              and practical solutions.
             </p>
-
-            <ul class="about-values-list">
-              <li>
-                <strong>Creativity:</strong>
-                We explore ideas and different ways to express them.
-              </li>
-
-              <li>
-                <strong>Learning:</strong>
-                We continually develop our skills and knowledge.
-              </li>
-
-              <li>
-                <strong>Collaboration:</strong>
-                We value the different strengths each team member brings.
-              </li>
-
-              <li>
-                <strong>Improvement:</strong>
-                We use feedback and practice to make our work better.
-              </li>
-            </ul>
-
             <p>
-              Our ambition is to create digital solutions that are useful,
-              engaging, and meaningful.
+              We are committed to growing our skills while creating digital
+              experiences that serve a real purpose.
             </p>
           </div>
-        </section>
+        </article>
 
-        <section class="about-accordion-item">
-          <h2 class="about-accordion-heading">
-            <button
-              type="button"
-              class="about-accordion-button"
-              aria-expanded="false"
-              aria-controls="about-journey-content"
-              id="about-journey-button"
-            >
-              <span>THE JOURNEY CONTINUES</span>
-
-              <span class="about-toggle-icon" aria-hidden="true">+</span>
-            </button>
-          </h2>
-
-          <div
-            class="about-accordion-content"
-            id="about-journey-content"
-            role="region"
-            aria-labelledby="about-journey-button"
-            hidden
+        <article class="about-section">
+          <button
+            type="button"
+            class="about-accordion-button"
+            aria-expanded="false"
+            aria-controls="aboutJourney"
           >
-            <p>
-              CODEX is a growing creative venture with room to learn,
-              experiment, collaborate, and explore new possibilities in
-              technology and design.
-            </p>
+            <span>The Journey Continues</span>
+            <span class="about-accordion-icon" aria-hidden="true">+</span>
+          </button>
 
+          <div class="about-section-content" id="aboutJourney" hidden>
             <p>
-              Every project gives us an opportunity to gain experience,
-              strengthen our abilities, and turn new ideas into practical
-              digital experiences.
+              CODEX is a growing journey. Every project, challenge, and new
+              skill is an opportunity to become better.
             </p>
-
             <p>
-              We look forward to developing more projects, expanding our
-              creative capabilities, and continuing to improve the work we do.
+              We look forward to building more, learning more, and taking on new
+              creative challenges.
             </p>
           </div>
-        </section>
-
-        <section class="about-accordion-item">
-          <h2 class="about-accordion-heading">
-            <button
-              type="button"
-              class="about-accordion-button"
-              aria-expanded="false"
-              aria-controls="about-create-content"
-              id="about-create-button"
-            >
-              <span>LET'S CREATE SOMETHING.</span>
-
-              <span class="about-toggle-icon" aria-hidden="true">+</span>
-            </button>
-          </h2>
-
-          <div
-            class="about-accordion-content"
-            id="about-create-content"
-            role="region"
-            aria-labelledby="about-create-button"
-            hidden
-          >
-            <p>
-              Every meaningful digital experience begins with an idea. Whether
-              it involves a website, a visual design, an animation, or another
-              creative digital solution, we believe that ideas deserve the
-              opportunity to grow.
-            </p>
-
-            <p>
-              Explore CODEX and discover the creative possibilities we are
-              working towards.
-            </p>
-
-            <a href="codex-home.html" class="about-action-button">
-              Explore CODEX
-            </a>
-          </div>
-        </section>
+        </article>
       </section>
 
-      <section class="codex-community">
-        <div class="codex-community-content">
-          <h2>Join the CODEX Community</h2>
-
+      <section class="about-community">
+        <div class="about-community-content">
+          <p class="about-eyebrow">BE PART OF THE COMMUNITY</p>
+          <h2>Let's Create Something</h2>
           <p>
-            Stay connected with CODEX Web and Design. Join our WhatsApp
-            community to explore our latest projects, discover our services, and
-            receive updates about our creative work.
+            Connect with the CODEX community and follow our journey as we learn,
+            create, and build.
           </p>
 
           <a
-            href="https://chat.whatsapp.com/FuHOFWAb7Jw2cq748tG65q?s=cl&p=a&mlu=4&ilr=4"
-            class="codex-community-button"
+            href="https://chat.whatsapp.com/H5QAHe00jgaHlfQfZCJz6q"
+            class="about-community-button"
             target="_blank"
             rel="noopener noreferrer"
-            aria-label="Join the CODEX Web and Design WhatsApp community"
           >
             Join Our WhatsApp Community
+          </a>
+        </div>
+      </section>
+
+      <section class="about-actions">
+        <h2>Explore CODEX</h2>
+
+        <div class="about-action-links">
+          <a href="codex-gallery.html" class="about-action-button">
+            View Projects
+          </a>
+
+          <a href="codex-team.html" class="about-action-button">
+            Meet Our Team
+          </a>
+
+          <a href="codex-enquiry.html" class="about-action-button">
+            Let's begin with your Projects
           </a>
         </div>
       </section>
     </main>
 
     <footer class="about-footer">
-      <p class="codex-motto">You Think &middot; We Create</p>
-
-      <p class="copyright">
-        &copy; 2026 CODEX Web and Design. All rights reserved.
+      <a href="index.html">CODEX Web and Design</a>
+      <p>You Think. We Create.</p>
+      <p>
+        &copy; <span id="aboutCurrentYear">2026</span> CODEX Web and Design. All
+        rights reserved.
       </p>
     </footer>
+
+    <script src="js/codex-about.js"></script>
   </body>
 </html>
