@@ -1,142 +1,136 @@
-(function initializeCodexProjectEnquiry() {
+/* =========================================
+   CODEX WEB AND DESIGN
+   INQUIRY PAGE JAVASCRIPT
+   ========================================= */
+
+(function initializeCodexEnquiry() {
   "use strict";
 
-  const enquiryYear = document.getElementById("enquiryCurrentYear");
+  const enquiryPage = document.querySelector(".enquiry-page");
 
-  if (enquiryYear) {
-    enquiryYear.textContent = new Date().getFullYear();
+  if (!enquiryPage) return;
+
+  const enquiryForm = enquiryPage.querySelector("#codexEnquiryForm");
+  const formMessage = enquiryPage.querySelector("#enquiryFormMessage");
+  const currentYear = enquiryPage.querySelector("#enquiryCurrentYear");
+  const deadlineInput = enquiryPage.querySelector("#projectDeadline");
+
+  // Automatically update the copyright year.
+  if (currentYear) {
+    currentYear.textContent = new Date().getFullYear();
   }
 
-  const enquiryForm = document.getElementById("codexEnquiryForm");
+  if (!enquiryForm) return;
 
-  if (!enquiryForm) {
-    return;
+  // Set the earliest selectable deadline to today.
+  if (deadlineInput) {
+    const today = new Date();
+    const localToday = new Date(
+      today.getTime() - today.getTimezoneOffset() * 60000,
+    )
+      .toISOString()
+      .split("T")[0];
+
+    deadlineInput.min = localToday;
   }
 
-  const enquiryMessage = document.getElementById("enquiryFormMessage");
-
-  const deadlineInput = document.getElementById("projectDeadline");
-
-  const resetButton = enquiryForm.querySelector('button[type="reset"]');
-
+  // CODEX WhatsApp business number.
   const CODEX_WHATSAPP_NUMBER = "2349113234337";
 
-  function showEnquiryFeedback(message) {
-    if (enquiryMessage) {
-      enquiryMessage.textContent = message;
+  function showMessage(message, type) {
+    if (!formMessage) return;
+
+    formMessage.textContent = message;
+    formMessage.dataset.type = type || "info";
+
+    if (type === "error") {
+      formMessage.style.color = "#FF6B6B";
+    } else if (type === "success") {
+      formMessage.style.color = "#34D399";
+    } else {
+      formMessage.style.color = "#C5CBD5";
     }
   }
 
-  function isDeadlineValid() {
-    if (!deadlineInput || !deadlineInput.value) {
-      return true;
-    }
+  function getFieldValue(fieldId) {
+    const field = enquiryPage.querySelector(`#${fieldId}`);
 
-    const today = new Date();
-    const localToday =
-      today.getFullYear() +
-      "-" +
-      String(today.getMonth() + 1).padStart(2, "0") +
-      "-" +
-      String(today.getDate()).padStart(2, "0");
-
-    if (deadlineInput.value < localToday) {
-      deadlineInput.setCustomValidity("Please choose today or a future date.");
-
-      return false;
-    }
-
-    deadlineInput.setCustomValidity("");
-    return true;
-  }
-
-  if (deadlineInput) {
-    deadlineInput.addEventListener("change", function () {
-      isDeadlineValid();
-    });
+    return field ? field.value.trim() : "";
   }
 
   enquiryForm.addEventListener("submit", function (event) {
     event.preventDefault();
 
-    showEnquiryFeedback("");
-
-    if (!enquiryForm.reportValidity()) {
+    // Let the browser handle required-field validation.
+    if (!enquiryForm.checkValidity()) {
+      enquiryForm.reportValidity();
       return;
     }
 
-    if (!isDeadlineValid()) {
-      deadlineInput.reportValidity();
-      return;
+    const clientName = getFieldValue("clientName");
+    const clientWhatsApp = getFieldValue("clientWhatsApp");
+    const projectType = getFieldValue("projectType");
+    const projectTitle = getFieldValue("projectTitle");
+    const projectDescription = getFieldValue("projectDescription");
+    const projectBudget = getFieldValue("projectBudget");
+    const projectDeadline = getFieldValue("projectDeadline");
+    const projectReferences = getFieldValue("projectReferences");
+
+    // Validate the selected deadline.
+    if (projectDeadline) {
+      const today = new Date();
+      const localToday = new Date(
+        today.getTime() - today.getTimezoneOffset() * 60000,
+      )
+        .toISOString()
+        .split("T")[0];
+
+      if (projectDeadline < localToday) {
+        showMessage(
+          "Please select today or a future project deadline.",
+          "error",
+        );
+
+        deadlineInput.focus();
+        return;
+      }
     }
 
-    const clientName = document.getElementById("clientName").value.trim();
-
-    const clientWhatsApp = document
-      .getElementById("clientWhatsApp")
-      .value.trim();
-
-    const projectType = document.getElementById("projectType").value;
-
-    const projectTitle = document.getElementById("projectTitle").value.trim();
-
-    const projectDescription = document
-      .getElementById("projectDescription")
-      .value.trim();
-
-    const projectBudget = document.getElementById("projectBudget").value;
-
-    const projectDeadline = document.getElementById("projectDeadline").value;
-
-    const projectReferences = document
-      .getElementById("projectReferences")
-      .value.trim();
-
+    // Format the deadline for the message.
     let formattedDeadline = "Not specified";
 
     if (projectDeadline) {
       const dateParts = projectDeadline.split("-");
-
-      formattedDeadline =
-        dateParts[2] + "/" + dateParts[1] + "/" + dateParts[0];
+      formattedDeadline = `${dateParts[2]}/${dateParts[1]}/${dateParts[0]}`;
     }
 
-    const messageLines = [
-      "Hello CODEX Web and Design!",
-      "",
-      "I would like to make a project enquiry.",
-      "",
-      "CLIENT DETAILS",
-      "Name: " + clientName,
-      "WhatsApp: " + clientWhatsApp,
-      "",
-      "PROJECT DETAILS",
-      "Service: " + projectType,
-      "Project Title: " + (projectTitle || "Not specified"),
-      "Description: " + projectDescription,
-      "Estimated Budget: " + (projectBudget || "Not specified"),
-      "Preferred Completion Date: " + formattedDeadline,
-      "Reference Links: " + (projectReferences || "None provided"),
-      "",
-      "Please let me know the next steps.",
-      "",
-      "Thank you!",
-    ];
+    // Build the WhatsApp message.
+    const whatsappMessage = `
+Hello CODEX Web and Design!
 
-    const whatsappMessage = messageLines.join("\n");
+I would like to make a project inquiry.
 
-    const numberIsConfigured = /^\d{10,15}$/.test(CODEX_WHATSAPP_NUMBER);
+CLIENT DETAILS
+Name: ${clientName}
+WhatsApp Number: ${clientWhatsApp}
 
-    if (!numberIsConfigured) {
-      showEnquiryFeedback(
-        "Your form is valid, but CODEX's WhatsApp " +
-          "number has not been configured yet. " +
-          "Please add the correct business number " +
-          "in script.js before testing the WhatsApp handoff.",
-      );
+PROJECT DETAILS
+Category: ${projectType}
+Project Title: ${projectTitle}
 
-      return;
-    }
+Description:
+${projectDescription}
+
+Estimated Budget: ${projectBudget || "Not specified"}
+Expected Deadline: ${formattedDeadline}
+
+Reference Links / Additional Information:
+${projectReferences || "None provided"}
+
+I look forward to discussing this project with CODEX.
+
+Thank you!
+    `.trim();
 
     const whatsappURL =
       "https://wa.me/" +
@@ -144,23 +138,12 @@
       "?text=" +
       encodeURIComponent(whatsappMessage);
 
-    showEnquiryFeedback(
-      "Your enquiry message is ready. WhatsApp will " +
-        "open so you can review it and press Send.",
+    showMessage(
+      "Your inquiry is ready. WhatsApp will open so you can review and send it.",
+      "success",
     );
 
+    // Open WhatsApp for the visitor to review the message.
     window.open(whatsappURL, "_blank", "noopener,noreferrer");
   });
-
-  if (resetButton) {
-    resetButton.addEventListener("click", function () {
-      window.setTimeout(function () {
-        showEnquiryFeedback("");
-
-        if (deadlineInput) {
-          deadlineInput.setCustomValidity("");
-        }
-      }, 0);
-    });
-  }
 })();
