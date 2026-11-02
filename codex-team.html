@@ -1,206 +1,239 @@
 <!doctype html>
 <html lang="en">
   <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
     <meta
       name="description"
-      content="Meet the creative team behind CODEX Web and Design, bringing together web development, graphic design, video editing, animation, and digital creativity.">
-    <meta name="author" content="Perfect Foko Codex15P">
-    <title>CODEX | Our Team</title>
-    <link rel="stylesheet" href="css/codex-team.css">
-    <script src="js/codex-team.js" defer></script>
+      content="Meet the creative team behind CODEX Web and Design."
+    />
+    <meta name="author" content="Perfect Foko Codex15P" />
+    <meta name="theme-color" content="#0B0F19" />
+
+    <title>Our Team | CODEX Web and Design</title>
+
+    <link rel="stylesheet" href="css/codex-team.css" />
   </head>
+
   <body class="team-page">
     <header class="team-header">
-      <div class="team-brand">
-        <img src="images/codex-logo.png" alt="CODEX logo" class="team-logo">
-
-        <div class="team-brand-text">
-          <span class="team-brand-name"> CODEX </span>
-          <span class="team-brand-subtitle"> WEB AND DESIGN </span>
-        </div>
-      </div>
+      <a href="index.html" class="team-brand">
+        <img
+          src="images/codex-logo.png"
+          alt="CODEX Web and Design logo"
+          class="team-logo"
+        />
+        <span>CODEX Web and Design</span>
+      </a>
 
       <a href="codex-home.html" class="team-home-link"> Home </a>
     </header>
 
-    <main class="team-section">
-      <header class="team-introduction">
-        <h1>Our Team</h1>
+    <main class="team-main">
+      <section class="team-introduction">
+        <p class="team-eyebrow">THE PEOPLE BEHIND THE WORK</p>
 
-        <p class="team-description">
-          Meet the creative minds behind CODEX Web and Design. Together, we
-          bring ideas to life through technology, creativity, and digital
-          innovation.
+        <h1>Meet Our Team</h1>
+
+        <p>
+          Every creative idea needs people willing to think, learn, collaborate,
+          and bring it to life. Meet the team behind CODEX Web and Design.
         </p>
-      </header>
 
-      <section class="team-member">
-        <button type="button" class="member-header" aria-expanded="false">
-          <img
-            src="images/perfect.png"
-            alt="Foko Perfect"
-            class="member-picture">
-
-          <span class="member-name"> Foko Perfect </span>
-
-          <span class="toggle-icon" aria-hidden="true"> + </span>
-        </button>
-
-        <div class="member-info" hidden>
-          <h2>Foko Perfect - <strong>Codex15P</strong></h2>
-
-          <p class="member-role">
-            Web Developer &amp; Microsoft Applications Specialist
-          </p>
-
-          <p class="item1">
-            Focused on building websites and creating practical digital
-            solutions, with an interest in modern web technologies and software
-            development.
-          </p>
-
-          <p>
-            <strong>Specialties:</strong>
-            HTML, CSS, web development, and Microsoft applications.
-          </p>
-
-          <p>
-            <strong>WhatsApp Contact:</strong>
-            <a
-              href="https://wa.me/2349113234337"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              09113234337
-            </a>
-          </p>
-        </div>
+        <p class="team-motto">You Think. We Create.</p>
       </section>
 
-      <section class="team-member">
-        <button type="button" class="member-header" aria-expanded="false">
-          <img
-            src="images/ogheneremu.png"
-            alt="Ogedegbe Ogheneremu"
-            class="member-picture">
+      <section class="team-members" aria-label="CODEX team members">
+        <!-- TEAM MEMBER 1 -->
+        <article class="team-member">
+          <button
+            type="button"
+            class="member-header"
+            aria-expanded="false"
+            aria-controls="perfectInfo"
+          >
+            <span>Foko Perfect</span>
+            <span class="toggle-icon" aria-hidden="true">+</span>
+          </button>
 
-          <span class="member-name"> Ogedegbe Ogheneremu </span>
+          <div class="member-info" id="perfectInfo" hidden>
+            <img
+              src="images/perfect.png"
+              alt="Foko Perfect"
+              class="member-picture"
+              loading="lazy"
+            />
 
-          <span class="toggle-icon" aria-hidden="true"> + </span>
-        </button>
+            <div class="member-details">
+              <h2>Foko Perfect</h2>
+              <p class="member-alias">Codex15P</p>
+              <p class="member-role">
+                Web Developer &amp; Microsoft Applications Specialist
+              </p>
+              <p>
+                <a
+                  href="https://wa.me/2349113234337"
+                  class="team-contact-btn"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Chat on WhatsApp
+                </a>
+              </p>
+            </div>
+          </div>
+        </article>
 
-        <div class="member-info" hidden>
-          <h2>Ogedegbe Ogheneremu - <strong>Remy Editz</strong></h2>
+        <!-- TEAM MEMBER 2 -->
+        <article class="team-member">
+          <button
+            type="button"
+            class="member-header"
+            aria-expanded="false"
+            aria-controls="ogheneremuInfo"
+          >
+            <span>Ogedegbe Ogheneremu</span>
+            <span class="toggle-icon" aria-hidden="true">+</span>
+          </button>
 
-          <p class="member-role">Video Editor &amp; Graphic Designer</p>
+          <div class="member-info" id="ogheneremuInfo" hidden>
+            <img
+              src="images/ogheneremu.png"
+              alt="Ogedegbe Ogheneremu"
+              class="member-picture"
+              loading="lazy"
+            />
 
-          <p>
-            Contributes to CODEX through video editing and graphic design,
-            helping transform creative ideas into engaging visual content.
-          </p>
+            <div class="member-details">
+              <h2>Ogedegbe Ogheneremu</h2>
+              <p class="member-alias">Remy Editz</p>
+              <p class="member-role">Video Editor &amp; Graphic Designer</p>
+              <p>
+                <a
+                  href="https://wa.me/2349134249417"
+                  class="team-contact-btn"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Chat on WhatsApp
+                </a>
+              </p>
+            </div>
+          </div>
+        </article>
 
-          <p>
-            <strong>Specialties:</strong>
-            Video editing and graphic design.
-          </p>
+        <!-- TEAM MEMBER 3 -->
+        <article class="team-member">
+          <button
+            type="button"
+            class="member-header"
+            aria-expanded="false"
+            aria-controls="mubarakInfo"
+          >
+            <span>Babatunde Mubarak</span>
+            <span class="toggle-icon" aria-hidden="true">+</span>
+          </button>
 
-          <p>
-            <strong>WhatsApp Contact:</strong>
-            <a
-              href="https://wa.me/2349134249417"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              09134249417
-            </a>
-          </p>
-        </div>
+          <div class="member-info" id="mubarakInfo" hidden>
+            <img
+              src="images/mubarak.png"
+              alt="Babatunde Mubarak"
+              class="member-picture"
+              loading="lazy"
+            />
+
+            <div class="member-details">
+              <h2>Babatunde Mubarak</h2>
+              <p class="member-alias">EDNUT</p>
+              <p class="member-role">Video Editor &amp; Animator</p>
+              <p>
+                <a
+                  href="https://wa.me/2348161429666"
+                  class="team-contact-btn"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Chat on WhatsApp
+                </a>
+              </p>
+            </div>
+          </div>
+        </article>
+
+        <!-- TEAM MEMBER 4 -->
+        <article class="team-member">
+          <button
+            type="button"
+            class="member-header"
+            aria-expanded="false"
+            aria-controls="favourInfo"
+          >
+            <span>Abuchitete Favour</span>
+            <span class="toggle-icon" aria-hidden="true">+</span>
+          </button>
+
+          <div class="member-info" id="favourInfo" hidden>
+            <img
+              src="images/favour.png"
+              alt="Abuchitete Favour"
+              class="member-picture"
+              loading="lazy"
+            />
+
+            <div class="member-details">
+              <h2>Abuchitete Favour</h2>
+              <p class="member-alias">Prime Edit</p>
+              <p class="member-role">Video Editor &amp; Graphic Designer</p>
+              <p>
+                <a
+                  href="https://wa.me/2349013278590"
+                  class="team-contact-btn"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Chat on WhatsApp
+                </a>
+              </p>
+            </div>
+          </div>
+        </article>
       </section>
 
-      <section class="team-member">
-        <button type="button" class="member-header" aria-expanded="false">
-          <img
-            src="images/mubarak.png"
-            alt="Babatunde Mubarak"
-            class="member-picture">
+      <section class="team-community">
+        <h2>Creativity Works Better Together</h2>
 
-          <span class="member-name"> Babatunde Mubarak </span>
+        <p>
+          Follow our journey, connect with the community, and stay updated on
+          what we are building.
+        </p>
 
-          <span class="toggle-icon" aria-hidden="true"> + </span>
-        </button>
-
-        <div class="member-info" hidden>
-          <h2>Babatunde Mubarak - <strong>EDNUT</strong></h2>
-
-          <p class="member-role">Video Editor &amp; Animator</p>
-
-          <p>
-            Focuses on video editing and animation, contributing motion,
-            storytelling, and visual creativity to CODEX projects.
-          </p>
-
-          <p>
-            <strong>Specialties:</strong>
-            Video editing and animation.
-          </p>
-
-          <p>
-            <strong>WhatsApp Contact:</strong>
-            <a
-              href="https://wa.me/2348161429666"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              08161429666
-            </a>
-          </p>
-        </div>
+        <a
+          href="https://chat.whatsapp.com/H5QAHe00jgaHlfQfZCJz6q"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="team-community-button"
+        >
+          Join Our WhatsApp Community
+        </a>
       </section>
 
-      <section class="team-member">
-        <button type="button" class="member-header" aria-expanded="false">
-          <img
-            src="images/favour.png"
-            alt="Abuchitete Favour"
-            class="member-picture">
-
-          <span class="member-name"> Abuchitete Favour </span>
-
-          <span class="toggle-icon" aria-hidden="true"> + </span>
-        </button>
-
-        <div class="member-info" hidden>
-          <h2>Abuchitete Favour - <strong>Prime Edit</strong></h2>
-
-          <p class="member-role">Video Editor &amp; Graphic Designer</p>
-
-          <p>
-            Contributes visual creativity to CODEX through video editing and
-            graphic design, helping develop engaging digital content.
-          </p>
-
-          <p>
-            <strong>Specialties:</strong>
-            Video editing and graphic design.
-          </p>
-
-          <p>
-            <strong>WhatsApp Contact:</strong>
-            <a
-              href="https://wa.me/2349013278590"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              09013278590
-            </a>
-          </p>
-        </div>
+      <section class="team-navigation">
+        <a href="codex-gallery.html">Explore Our Project Gallery</a>
+        <a href="codex-enquiry.html">Let's Start a New project </a>
+        <a href="codex-about.html">About CODEX</a>
       </section>
     </main>
 
-    <div class="image-viewer" id="imageViewer" hidden>
+    <!-- IMAGE VIEWER -->
+    <div
+      class="image-viewer"
+      id="imageViewer"
+      role="dialog"
+      aria-modal="true"
+      aria-label="Team member photograph"
+      hidden
+    >
       <button
         type="button"
         class="image-viewer-close"
@@ -209,14 +242,19 @@
       >
         &times;
       </button>
+
+      <img src="" alt="" id="fullTeamImage" />
     </div>
 
     <footer class="team-footer">
-      <p class="codex-motto">You Think &middot; We Create</p>
-
-      <p class="copyright">
-        &copy; 2026 CODEX Web and Design. All rights reserved.
+      <a href="index.html">CODEX Web and Design</a>
+      <p>You Think. We Create.</p>
+      <p>
+        &copy; <span id="teamCurrentYear">2026</span>
+        CODEX Web and Design. All rights reserved.
       </p>
     </footer>
+
+    <script src="js/codex-team.js"></script>
   </body>
 </html>
