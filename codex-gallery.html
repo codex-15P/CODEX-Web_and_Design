@@ -1,247 +1,385 @@
 <!doctype html>
 <html lang="en">
   <head>
-    <meta charset="UTF-8" >
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" >
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
     <meta
       name="description"
-      content="Explore completed projects by CODEX Web and Design, including web development, graphic design, animation, video editing, and digital solutions."
-    >
-    <title>CODEX | Projects Gallery</title>
-    <link rel="stylesheet" href="css/codex-gallery.css" >
+      content="Explore websites, graphic designs, animations, video edits, and digital projects created by CODEX Web and Design."
+    />
+    <meta name="author" content="Perfect Foko Codex15P" />
+    <meta name="theme-color" content="#0B0F19" />
 
+    <title>Our Gallery | CODEX Web and Design</title>
+
+    <link rel="stylesheet" href="css/codex-gallery.css" />
     <script src="js/codex-gallery.js" defer></script>
   </head>
-  <body class="project-gallery-page">
-    <header class="gallery-header">
-      <div class="gallery-brand" >
-        <img
-          src="images/codex-logo.png"
-          alt="CODEX Logo"
-          class="gallery-logo"
+
+  <body>
+    <div class="project-gallery-page">
+      <!-- =====================================
+           HEADER
+      ====================================== -->
+
+      <header class="gallery-header">
+        <a
+          class="gallery-brand"
+          href="index.html"
+          aria-label="CODEX Web and Design entry page"
         >
+          <img
+            src="images/codex-logo.png"
+            alt="CODEX Web and Design logo"
+            class="gallery-logo"
+          />
 
-        <div class="gallery-brand-text">
-          <span class="gallery-brand-name"> CODEX </span>
-          <span class="gallery-brand-subtitle"> WEB AND DESIGN </span>
-        </div>
-      </div>
-
-      <a href="codex-home.html" class="gallery-home-button"> Home </a>
-    </header>
-
-    <main class="gallery-main">
-      <section class="gallery-intro">
-        <p class="gallery-eyebrow">IDEAS BROUGHT TO LIFE</p>
-
-        <h1>Our <span>Projects</span></h1>
-
-        <p class="gallery-intro-description">
-          Every project represents an idea, a challenge, and an opportunity to
-          create something meaningful. Explore the work we've completed and
-          discover what CODEX Web and Design can create for you.
-        </p>
-
-        <p class="codex-aim">&middot; Turning Ideas Into Reality &middot;</p>
-      </section>
-
-      <section
-        class="gallery-projects-section"
-        aria-labelledby="gallery-projects-heading"
-      >
-        <div class="gallery-section-heading">
-          <p class="gallery-eyebrow">EXPLORE OUR WORK</p>
-
-          <h2 id="gallery-projects-heading">Discover Our Creations</h2>
-
-          <p>
-            Browse our projects by service category. As CODEX grows, new
-            categories and projects can be added here.
-          </p>
-        </div>
-
-        <div
-          class="gallery-category-filters"
-          role="group"
-          aria-label="Filter projects by category"
-        >
-          <button
-            type="button"
-            class="gallery-filter-button active"
-            data-category="all"
-            aria-pressed="true"
-          >
-            All Projects
-          </button>
-
-          <button
-            type="button"
-            class="gallery-filter-button"
-            data-category="web-development"
-            aria-pressed="false"
-          >
-            Web Development
-          </button>
-
-          <button
-            type="button"
-            class="gallery-filter-button"
-            data-category="graphic-design"
-            aria-pressed="false"
-          >
-            Graphic Design
-          </button>
-
-          <button
-            type="button"
-            class="gallery-filter-button"
-            data-category="video-editing"
-            aria-pressed="false"
-          >
-            Video Editing
-          </button>
-
-          <button
-            type="button"
-            class="gallery-filter-button"
-            data-category="animation"
-            aria-pressed="false"
-          >
-            Animation
-          </button>
-
-          <button
-            type="button"
-            class="gallery-filter-button"
-            data-category="microsoft-applications"
-            aria-pressed="false"
-          >
-            Microsoft Applications
-          </button>
-
-          <button
-            type="button"
-            class="gallery-filter-button"
-            data-category="advertising-promotions"
-            aria-pressed="false"
-          >
-            Advertising &amp; Promotions
-          </button>
-
-          <button
-            type="button"
-            class="gallery-filter-button"
-            data-category="other"
-            aria-pressed="false"
-          >
-            Other Projects
-          </button>
-        </div>
-
-        <div class="gallery-project-grid" id="galleryProjectGrid">
-          <article class="gallery-project-card" data-category="web-development">
-            <div class="gallery-project-preview">
-              <div class="gallery-preview-placeholder">
-                <span class="gallery-preview-symbol" aria-hidden="true">
-                  <img
-                    src="images/codex-logo.png"
-                    alt=""
-                    class="gallery-logo"
-                  >
-                </span>
-
-                <p>Project Preview</p>
-
-                <span> Preview coming soon </span>
-              </div>
-
-              <span class="gallery-project-category"> Web Development </span>
-            </div>
-
-            <div class="gallery-project-information">
-              <p class="gallery-project-label">COMPLETED PROJECT</p>
-
-              <h3>Gloria's Catering Services</h3>
-
-              <p class="gallery-project-description">
-                A website project created to present Gloria's snack business,
-                showcase its services, and provide customers with an accessible
-                way to make enquiries and place orders.
-              </p>
-
-              <div class="gallery-project-meta">
-                <div class="gallery-project-meta-item">
-                  <span class="gallery-meta-label"> Category </span>
-
-                  <span class="gallery-meta-value"> Web Development </span>
-                </div>
-
-                <div class="gallery-project-meta-item">
-                  <span class="gallery-meta-label"> Creator </span>
-
-                  <span class="gallery-meta-value"> CODEX Web and Design </span>
-                </div>
-              </div>
-
-              <p class="gallery-project-link-status">
-                Live website link will be available here when the project is
-                published.
-              </p>
-
-              <a
-                href="codex-enquiry.html"
-                class="gallery-project-enquiry-button"
-              >
-                Want Something Like This?
-              </a>
-            </div>
-          </article>
-        </div>
-
-        <div class="gallery-empty-state" id="galleryEmptyState" hidden>
-          <span class="gallery-empty-symbol" aria-hidden="true"> ? </span>
-
-          <h3>No Projects in This Category Yet</h3>
-
-          <p>
-            We're working on more creative projects. Check back soon to see
-            what's new.
-          </p>
-
-          <button
-            type="button"
-            class="gallery-show-all-button"
-            data-category="all"
-          >
-            View All Projects
-          </button>
-        </div>
-      </section>
-
-      <section class="gallery-client-cta">
-        <p class="gallery-eyebrow">HAVE AN IDEA?</p>
-
-        <h2>Let's Create Something for You</h2>
-
-        <p>
-          Have you seen a project you like, or do you have a completely
-          different idea? Tell us what you need, and let's explore how CODEX can
-          help.
-        </p>
-
-        <a href="codex-enquiry.html" class="gallery-main-enquiry-button">
-          Start a Project Enquiry
+          <span class="gallery-brand-text">
+            <strong>CODEX</strong>
+            <span>Web and Design</span>
+          </span>
         </a>
-      </section>
-    </main>
 
-    <footer class="gallery-footer">
-      <p class="codex-motto">You Think &middot; We Create</p>
+        <a class="gallery-home-link" href="codex-home.html"> Home </a>
+      </header>
 
-      <p class="copyright">
-        &copy; <span id="galleryCurrentYear"></span>
-        CODEX Web and Design. All rights reserved.
-      </p>
-    </footer>
+      <main>
+        <!-- =====================================
+             GALLERY INTRODUCTION
+        ====================================== -->
+
+        <section class="gallery-hero" aria-labelledby="galleryTitle">
+          <p class="gallery-eyebrow">OUR CREATIVE SHOWCASE</p>
+
+          <h1 id="galleryTitle">Ideas Into <span>Reality.</span></h1>
+
+          <p class="gallery-description">
+            Explore our creative work, digital experiments, and completed
+            projects. Every project represents an idea brought closer to life.
+          </p>
+        </section>
+
+        <!-- =====================================
+             PROJECT SHOWCASE
+        ====================================== -->
+
+        <section class="gallery-showcase" aria-labelledby="showcaseTitle">
+          <div class="gallery-section-heading">
+            <h2 id="showcaseTitle">Explore Our Work</h2>
+
+            <p>
+              Choose a category to explore the different types of work
+              associated with CODEX.
+            </p>
+          </div>
+
+          <!-- CATEGORY FILTER BUTTONS -->
+
+          <div
+            class="gallery-filters"
+            role="group"
+            aria-label="Filter projects by category"
+          >
+            <button
+              type="button"
+              class="gallery-filter-button active"
+              data-category="all"
+              aria-pressed="true"
+            >
+              All Work
+            </button>
+
+            <button
+              type="button"
+              class="gallery-filter-button"
+              data-category="web-development"
+              aria-pressed="false"
+            >
+              Web Development
+            </button>
+
+            <button
+              type="button"
+              class="gallery-filter-button"
+              data-category="graphic-design"
+              aria-pressed="false"
+            >
+              Graphic Design
+            </button>
+
+            <button
+              type="button"
+              class="gallery-filter-button"
+              data-category="video-editing"
+              aria-pressed="false"
+            >
+              Video Editing
+            </button>
+
+            <button
+              type="button"
+              class="gallery-filter-button"
+              data-category="animation"
+              aria-pressed="false"
+            >
+              Animation
+            </button>
+
+            <button
+              type="button"
+              class="gallery-filter-button"
+              data-category="microsoft-applications"
+              aria-pressed="false"
+            >
+              Microsoft Applications
+            </button>
+
+            <button
+              type="button"
+              class="gallery-filter-button"
+              data-category="advertising-promotions"
+              aria-pressed="false"
+            >
+              Advertising & Promotions
+            </button>
+
+            <button
+              type="button"
+              class="gallery-filter-button"
+              data-category="other"
+              aria-pressed="false"
+            >
+              Other
+            </button>
+          </div>
+
+          <!-- =====================================
+               PROJECT CARDS
+
+               TO ADD ANOTHER PROJECT:
+
+               1. Copy one complete
+                  <article class="gallery-project-card"> ... </article>
+                  block.
+
+               2. Paste it immediately after the previous
+                  project card, but still inside
+                  #galleryProjectGrid.
+
+               3. Change the data-category value.
+                  It MUST match one of the filter values above.
+
+               4. Change the preview, category, title,
+                  description, link and button text.
+
+               5. Do not change the class names or IDs.
+
+               PROJECT CATEGORY VALUES:
+
+               web-development
+               graphic-design
+               video-editing
+               animation
+               microsoft-applications
+               advertising-promotions
+               other
+
+          ====================================== -->
+
+          <div class="gallery-project-grid" id="galleryProjectGrid">
+            <!-- =================================
+                 PROJECT 01
+                 GLORIA'S CATERING SERVICES
+
+                 EDIT THESE DETAILS WHEN READY:
+
+                 WEBSITE LINK:
+                 Replace the placeholder in href below
+                 with the actual website URL.
+
+                 PREVIEW IMAGE:
+                 To use a screenshot, replace the
+                 gallery-preview-placeholder div with:
+
+                 <img
+                   class="gallery-project-image"
+                   src="images/your-project-image.png"
+                   alt="Screenshot of your project"
+                 />
+
+                 Put the image inside gallery-project-preview.
+            ================================== -->
+
+            <article
+              class="gallery-project-card"
+              data-category="web-development"
+            >
+              <!-- PROJECT PREVIEW -->
+
+              <div class="gallery-project-preview">
+                <img
+                  class="gallery-project-image"
+                  src="images/gloria-preview.png"
+                  alt="Screenshot of your project"
+                />
+                <div class="gallery-preview-placeholder">
+                  <!-- <span class="gallery-preview-label"> WEB DEVELOPMENT </span>
+
+                  <h3>Gloria's Catering Services</h3>
+
+                  <p>Website Project</p>
+
+                  <span class="gallery-preview-status">
+                    Preview coming soon
+                  </span> -->
+                </div>
+              </div>
+
+              <!-- PROJECT INFORMATION -->
+
+              <div class="gallery-project-content">
+                <p class="gallery-project-category">Web Development</p>
+
+                <h3>Gloria's Catering Services</h3>
+
+                <p>
+                  A website project for a catering business, designed to present
+                  its services and help potential customers learn more about the
+                  business.
+                </p>
+
+                <!--
+                  PROJECT DESTINATION BUTTON
+
+                  Replace the href placeholder with the real website URL.
+
+                  Example:
+                  href="https://yourwebsite.com"
+
+                  Keep target="_blank" and rel="noopener noreferrer".
+                -->
+
+                <a
+                  class="gallery-project-link"
+                  href="https://codex-15p.github.io/Gloria-s_Catering_Service/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="Visit Gloria's Catering Services website"
+                >
+                  Visit Website ↗
+                </a>
+              </div>
+            </article>
+
+            <!--
+              FUTURE PROJECTS GO HERE.
+
+              Duplicate the complete PROJECT CARD above.
+              Paste it here and edit its details.
+
+              For a video project, for example:
+
+              data-category="video-editing"
+
+              Button text:
+              Watch Video ▶
+
+              Button href:
+              Your public video or social media URL.
+
+              For graphic design:
+
+              data-category="graphic-design"
+
+              Button text:
+              View Design ↗
+
+              Button href:
+              Your public design viewing link.
+
+              Each project gets its OWN destination link.
+            -->
+          </div>
+
+          <!-- EMPTY CATEGORY MESSAGE -->
+
+          <div class="gallery-empty-state" id="galleryEmptyState" hidden>
+            <h3>More Creative Work Is Coming</h3>
+
+            <p>
+              There are no projects displayed in this category yet. Check back
+              as the gallery grows.
+            </p>
+
+            <button type="button" class="gallery-show-all-button">
+              View All Work
+            </button>
+          </div>
+        </section>
+
+        <!-- =====================================
+             PROJECTS PAGE CTA
+        ====================================== -->
+
+        <section class="gallery-projects-cta">
+          <div class="gallery-cta-content">
+            <p class="gallery-eyebrow">WHAT'S NEXT?</p>
+
+            <h2>Discover What's in Progress</h2>
+
+            <p>
+              Visit our Projects page to see what's coming next for CODEX Web
+              and Design.
+            </p>
+
+            <a class="gallery-cta-button" href="codex-project.html">
+              Explore Our Projects
+            </a>
+          </div>
+        </section>
+
+        <!-- =====================================
+             ENQUIRY CTA
+        ====================================== -->
+
+        <section class="gallery-enquiry-cta">
+          <h2>Have an Idea in Mind?</h2>
+
+          <p>
+            Let's work together to turn your idea into something useful,
+            creative, and memorable.
+          </p>
+
+          <a class="gallery-cta-button" href="codex-enquiry.html">
+            Start a New Project
+          </a>
+        </section>
+      </main>
+
+      <!-- =====================================
+           FOOTER
+      ====================================== -->
+
+      <footer class="gallery-footer">
+        <div class="gallery-footer-brand">
+          <strong>CODEX Web and Design</strong>
+          <p>You Think. We Create.</p>
+        </div>
+
+        <nav class="gallery-footer-navigation" aria-label="Footer navigation">
+          <a href="codex-home.html">Home</a>
+          <a href="codex-project.html">Preview</a>
+          <a href="codex-enquiry.html">Inquiry</a>
+          <a href="codex-team.html">Team</a>
+          <a href="codex-about.html">About</a>
+        </nav>
+
+        <p class="gallery-copyright">
+          &copy; <span id="galleryCurrentYear"></span>
+          CODEX Web and Design. All rights reserved.
+        </p>
+      </footer>
+    </div>
   </body>
 </html>
