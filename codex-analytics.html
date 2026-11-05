@@ -1,0 +1,651 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <meta
+      name="description"
+      content="CODEX Web and Design Analytics Dashboard — Website performance and visitor statistics."
+    />
+
+    <meta name="author" content="Perfect Foko Codex15P" />
+
+    <meta name="robots" content="noindex, nofollow" />
+
+    <title>CODEX Analytics | Website Dashboard</title>
+
+    <!-- Analytics Dashboard Stylesheet -->
+    <link rel="stylesheet" href="css/codex-analytics.css" />
+    <link rel="stylesheet" href="css/site-navigation.css" />
+
+    <!-- Analytics Dashboard JavaScript -->
+    <script src="js/codex-analytic.js" defer></script>
+  </head>
+
+  <body class="analytics-page">
+    <!-- =====================================
+       DASHBOARD HEADER
+  ====================================== -->
+
+    <header class="analytics-header">
+      <div class="analytics-brand">
+        <img
+          src="images/codex-logo.png"
+          alt="CODEX Logo"
+          class="analytics-logo"
+        />
+
+        <span class="analytics-brand-text">
+          <strong>CODEX</strong>
+          <small>WEB AND DESIGN</small>
+        </span>
+      </div>
+
+      <div class="analytics-header-actions">
+<a class="startup-home-icon" href="index.html" aria-label="Go to the Startup page">
+  <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+    <path d="M3 10.5 12 3l9 7.5"></path>
+    <path d="M5.5 9.5V21h13V9.5M9.5 21v-7h5v7"></path>
+  </svg>
+</a>
+        <div class="analytics-demo-indicator">
+          <span class="status-dot"></span>
+          <span>Demo Dashboard</span>
+        </div>
+
+        <div class="analytics-admin-profile">
+          <span class="admin-avatar">C</span>
+
+          <span class="admin-profile-name"> Administrator </span>
+        </div>
+
+        <button
+          class="sidebar-toggle"
+          id="analyticsSidebarToggle"
+          type="button"
+          aria-label="Open dashboard navigation"
+          aria-expanded="false"
+          aria-controls="analyticsSidebar"
+        >
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+    </header>
+
+    <!-- =====================================
+       DASHBOARD LAYOUT
+  ====================================== -->
+
+    <div class="analytics-layout">
+      <!-- =================================
+         SIDEBAR NAVIGATION
+    ================================== -->
+
+      <aside class="analytics-sidebar" id="analyticsSidebar">
+        <div class="sidebar-navigation">
+          <p class="sidebar-heading">MAIN MENU</p>
+
+          <button
+            class="sidebar-link active"
+            type="button"
+            data-view-target="dashboardView"
+            aria-current="page"
+          >
+            <span class="sidebar-icon">▦</span>
+            <span>Dashboard</span>
+          </button>
+
+          <button
+            class="sidebar-link"
+            type="button"
+            data-view-target="visitorHistoryView"
+          >
+            <span class="sidebar-icon">◷</span>
+            <span>Visitor History</span>
+          </button>
+
+          <button
+            class="sidebar-link"
+            type="button"
+            data-view-target="reportsView"
+          >
+            <span class="sidebar-icon">▤</span>
+            <span>Reports</span>
+          </button>
+
+          <button
+            class="sidebar-link"
+            type="button"
+            data-view-target="settingsView"
+          >
+            <span class="sidebar-icon">⚙</span>
+            <span>Settings</span>
+          </button>
+        </div>
+
+        <div class="sidebar-secondary">
+          <p class="sidebar-heading">WEBSITE</p>
+
+          <a href="codex-home.html" class="sidebar-link">
+            <span class="sidebar-icon">⌂</span>
+            <span>Visit CODEX</span>
+          </a>
+        </div>
+
+        <!-- Sidebar Brand Card -->
+
+        <div class="sidebar-brand-card">
+          <div class="sidebar-brand-symbol">C</div>
+
+          <h3>CODEX Analytics</h3>
+
+          <p>Track. Understand. Grow.</p>
+        </div>
+
+        <p class="sidebar-version">CODEX ANALYTICS · V1.0</p>
+      </aside>
+
+      <!-- =================================
+         MAIN CONTENT
+    ================================== -->
+
+      <main class="analytics-main">
+        <!-- =================================
+           DEMO MODE NOTICE
+      ================================== -->
+
+        <div class="analytics-demo-notice">
+          <span class="notice-icon">ⓘ</span>
+
+          <p>
+            <strong>Frontend Preview:</strong>
+            This dashboard currently displays sample interface elements. Real
+            visitor tracking and secure administrator authentication have not
+            been connected.
+          </p>
+        </div>
+
+        <!-- =================================
+           DASHBOARD VIEW
+      ================================== -->
+
+        <section
+          class="analytics-view active"
+          id="dashboardView"
+          aria-labelledby="dashboardTitle"
+        >
+          <!-- Dashboard Introduction -->
+
+          <div class="analytics-page-heading">
+            <div>
+              <p class="analytics-eyebrow">WEBSITE PERFORMANCE</p>
+
+              <h1 id="dashboardTitle">CODEX <span>ANALYTICS</span></h1>
+
+              <p class="analytics-subtitle">
+                Monitor your website performance and visitor engagement.
+              </p>
+            </div>
+
+            <div class="analytics-date-filter">
+              <label for="dashboardDateRange"> Reporting period </label>
+
+              <select id="dashboardDateRange">
+                <option value="7">Last 7 Days</option>
+
+                <option value="30" selected>Last 30 Days</option>
+
+                <option value="90">Last 90 Days</option>
+
+                <option value="365">Last 12 Months</option>
+
+                <option value="all">All Time</option>
+              </select>
+            </div>
+          </div>
+
+          <!-- =================================
+             OVERVIEW STATISTICS
+        ================================== -->
+
+          <div class="analytics-section-heading">
+            <div>
+              <h2>Website Overview</h2>
+
+              <p>Your website's overall visitor statistics.</p>
+            </div>
+          </div>
+
+          <div class="analytics-stats-grid">
+            <!-- Total Visitors -->
+
+            <article class="analytics-stat-card visitors-card">
+              <div class="stat-card-top">
+                <span class="stat-icon"> ♙ </span>
+
+                <span class="stat-label"> TOTAL VISITORS </span>
+              </div>
+
+              <div class="stat-value" data-stat="totalVisitors">—</div>
+
+              <p class="stat-description">Unique recognised visitors</p>
+
+              <span class="stat-change" data-stat-change="visitors">
+                Awaiting data
+              </span>
+            </article>
+
+            <!-- Page Views -->
+
+            <article class="analytics-stat-card pageviews-card">
+              <div class="stat-card-top">
+                <span class="stat-icon"> ◉ </span>
+
+                <span class="stat-label"> PAGE VIEWS </span>
+              </div>
+
+              <div class="stat-value" data-stat="pageViews">—</div>
+
+              <p class="stat-description">Total pages opened</p>
+
+              <span class="stat-change" data-stat-change="pageViews">
+                Awaiting data
+              </span>
+            </article>
+
+            <!-- Online Visitors -->
+
+            <article class="analytics-stat-card online-card">
+              <div class="stat-card-top">
+                <span class="stat-icon"> ● </span>
+
+                <span class="stat-label"> ONLINE NOW </span>
+              </div>
+
+              <div class="stat-value" data-stat="onlineVisitors">—</div>
+
+              <p class="stat-description">Active visitor sessions</p>
+
+              <span class="stat-change"> Not connected </span>
+            </article>
+
+            <!-- Returning Visitors -->
+
+            <article class="analytics-stat-card returning-card">
+              <div class="stat-card-top">
+                <span class="stat-icon"> ↻ </span>
+
+                <span class="stat-label"> RETURNING VISITORS </span>
+              </div>
+
+              <div class="stat-value" data-stat="returningVisitors">—</div>
+
+              <p class="stat-description">Previously recognised visitors</p>
+
+              <span class="stat-change" data-stat-change="returning">
+                Awaiting data
+              </span>
+            </article>
+          </div>
+
+          <!-- =================================
+             VISITOR ANALYTICS CHARTS
+        ================================== -->
+
+          <div class="analytics-charts-grid">
+            <!-- Visitor Trends -->
+
+            <article class="analytics-panel visitor-trends-panel">
+              <div class="panel-heading">
+                <div>
+                  <h2>Visitor Trends</h2>
+
+                  <p>Website traffic over time</p>
+                </div>
+
+                <div class="chart-legend">
+                  <span>
+                    <i class="legend-dot visitors-legend"></i>
+                    Visitors
+                  </span>
+
+                  <span>
+                    <i class="legend-dot pageviews-legend"></i>
+                    Page Views
+                  </span>
+                </div>
+              </div>
+
+              <div
+                class="visitor-chart"
+                id="visitorTrendsChart"
+                role="img"
+                aria-label="Visitor trends chart awaiting analytics data"
+              >
+                <div class="chart-empty-state">
+                  <span>▥</span>
+
+                  <p>Visitor trend data will appear here.</p>
+                </div>
+              </div>
+            </article>
+
+            <!-- Visitor Types -->
+
+            <article class="analytics-panel visitor-types-panel">
+              <div class="panel-heading">
+                <div>
+                  <h2>Visitor Types</h2>
+
+                  <p>New and returning visitors</p>
+                </div>
+              </div>
+
+              <div class="visitor-types-content">
+                <div
+                  class="visitor-donut"
+                  id="visitorTypeChart"
+                  role="img"
+                  aria-label="Visitor type chart awaiting analytics data"
+                >
+                  <div class="donut-inner">
+                    <strong>—</strong>
+
+                    <span>Visitors</span>
+                  </div>
+                </div>
+
+                <div class="visitor-type-legend">
+                  <div class="visitor-type-item">
+                    <span class="type-dot new-visitor-dot"></span>
+
+                    <span>New Visitors</span>
+
+                    <strong data-stat="newVisitorPercentage"> — </strong>
+                  </div>
+
+                  <div class="visitor-type-item">
+                    <span class="type-dot returning-visitor-dot"></span>
+
+                    <span>Returning Visitors</span>
+
+                    <strong data-stat="returningVisitorPercentage"> — </strong>
+                  </div>
+                </div>
+              </div>
+            </article>
+          </div>
+
+          <!-- =================================
+             INDIVIDUAL PAGE PERFORMANCE
+        ================================== -->
+
+          <section class="analytics-panel page-performance-panel">
+            <div class="panel-heading">
+              <div>
+                <h2>Individual Page Performance</h2>
+
+                <p>Compare traffic across your CODEX website pages.</p>
+              </div>
+
+              <span class="panel-badge"> ALL PAGES </span>
+            </div>
+
+            <div class="analytics-table-wrapper">
+              <table class="analytics-table">
+                <thead>
+                  <tr>
+                    <th>Website Page</th>
+
+                    <th>Page Views</th>
+
+                    <th>Unique Visitors</th>
+
+                    <th>Performance</th>
+
+                    <th>Status</th>
+                  </tr>
+                </thead>
+
+                <tbody id="pagePerformanceTable">
+                  <tr data-page="home">
+                    <td>
+                      <strong>Home</strong>
+                      <small>codex-home.html</small>
+                    </td>
+
+                    <td data-page-views="home">—</td>
+
+                    <td data-page-visitors="home">—</td>
+
+                    <td>
+                      <span class="performance-placeholder">—</span>
+                    </td>
+
+                    <td>
+                      <span class="page-status pending"> Awaiting data </span>
+                    </td>
+                  </tr>
+
+                  <tr data-page="gallery">
+                    <td>
+                      <strong>Gallery</strong>
+                      <small>codex-gallery.html</small>
+                    </td>
+
+                    <td data-page-views="gallery">—</td>
+
+                    <td data-page-visitors="gallery">—</td>
+
+                    <td>
+                      <span class="performance-placeholder">—</span>
+                    </td>
+
+                    <td>
+                      <span class="page-status pending"> Awaiting data </span>
+                    </td>
+                  </tr>
+
+                  <tr data-page="projects">
+                    <td>
+                      <strong>Projects</strong>
+                      <small>codex-project.html</small>
+                    </td>
+
+                    <td data-page-views="projects">—</td>
+
+                    <td data-page-visitors="projects">—</td>
+
+                    <td>
+                      <span class="performance-placeholder">—</span>
+                    </td>
+
+                    <td>
+                      <span class="page-status pending"> Awaiting data </span>
+                    </td>
+                  </tr>
+
+                  <tr data-page="about">
+                    <td>
+                      <strong>About</strong>
+                      <small>codex-about.html</small>
+                    </td>
+
+                    <td data-page-views="about">—</td>
+
+                    <td data-page-visitors="about">—</td>
+
+                    <td>
+                      <span class="performance-placeholder">—</span>
+                    </td>
+
+                    <td>
+                      <span class="page-status pending"> Awaiting data </span>
+                    </td>
+                  </tr>
+
+                  <tr data-page="team">
+                    <td>
+                      <strong>Our Team</strong>
+                      <small>codex-team.html</small>
+                    </td>
+
+                    <td data-page-views="team">—</td>
+
+                    <td data-page-visitors="team">—</td>
+
+                    <td>
+                      <span class="performance-placeholder">—</span>
+                    </td>
+
+                    <td>
+                      <span class="page-status pending"> Awaiting data </span>
+                    </td>
+                  </tr>
+
+                  <tr data-page="inquiry">
+                    <td>
+                      <strong>Inquiry</strong>
+                      <small>codex-enquiry.html</small>
+                    </td>
+
+                    <td data-page-views="inquiry">—</td>
+
+                    <td data-page-visitors="inquiry">—</td>
+
+                    <td>
+                      <span class="performance-placeholder">—</span>
+                    </td>
+
+                    <td>
+                      <span class="page-status pending"> Awaiting data </span>
+                    </td>
+                  </tr>
+
+                  <tr data-page="entry">
+                    <td>
+                      <strong>Entry Page</strong>
+                      <small>index.html</small>
+                    </td>
+
+                    <td data-page-views="entry">—</td>
+
+                    <td data-page-visitors="entry">—</td>
+
+                    <td>
+                      <span class="performance-placeholder">—</span>
+                    </td>
+
+                    <td>
+                      <span class="page-status pending"> Awaiting data </span>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </section>
+
+          <!-- =================================
+             RECENT ACTIVITY
+        ================================== -->
+
+          <div class="analytics-bottom-grid">
+            <!-- Recent Activity -->
+
+            <article class="analytics-panel recent-activity-panel">
+              <div class="panel-heading">
+                <div>
+                  <h2>Recent Activity</h2>
+
+                  <p>Latest recorded website activity</p>
+                </div>
+              </div>
+
+              <div class="recent-activity-list" id="recentActivityList">
+                <div class="activity-empty-state">
+                  <span>◷</span>
+
+                  <p>
+                    Visitor activity will appear here once tracking is
+                    connected.
+                  </p>
+                </div>
+              </div>
+            </article>
+
+            <!-- Visitor Locations -->
+
+            <article class="analytics-panel visitor-location-panel">
+              <div class="panel-heading">
+                <div>
+                  <h2>Visitor Locations</h2>
+
+                  <p>General visitor geographic distribution</p>
+                </div>
+              </div>
+
+              <div class="visitor-location-content">
+                <div class="location-placeholder-icon">◎</div>
+
+                <h3>Location Analytics</h3>
+
+                <p>
+                  Geographic statistics will appear here when an analytics
+                  provider supplies suitable location data.
+                </p>
+
+                <span class="location-note"> Approximate locations only </span>
+              </div>
+            </article>
+          </div>
+        </section>
+
+        <!-- =================================
+           VISITOR HISTORY VIEW
+      ================================== -->
+
+        <section
+          class="analytics-view"
+          id="visitorHistoryView"
+          aria-labelledby="visitorHistoryTitle"
+          hidden
+        >
+          <div class="analytics-page-heading">
+            <div>
+              <p class="analytics-eyebrow">WEBSITE ACTIVITY</p>
+
+              <h1 id="visitorHistoryTitle">VISITOR <span>HISTORY</span></h1>
+
+              <p class="analytics-subtitle">
+                Review recorded visitor and page activity.
+              </p>
+            </div>
+          </div>
+
+          <div class="analytics-panel history-panel">
+            <div class="panel-heading">
+              <div>
+                <h2>Visitor Records</h2>
+
+                <p>Anonymous visitor and session information.</p>
+              </div>
+            </div>
+
+            <div class="analytics-table-wrapper">
+              <table class="analytics-table">
+                <thead>
+                  <tr>
+                    <th>Visitor Referen</th>
+                  </tr>
+                </thead>
+              </table>
+            </div>
+          </div>
+        </section>
+      </main>
+    </div>
+  </body>
+</html>
