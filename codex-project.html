@@ -3,258 +3,291 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
     <meta
       name="description"
-      content="Meet the creative team behind CODEX Web and Design."
+      content="Explore current projects, creative developments, and upcoming releases from CODEX Web and Design."
     />
     <meta name="author" content="Perfect Foko Codex15P" />
     <meta name="theme-color" content="#0B0F19" />
 
-    <title>Our Team | CODEX Web and Design</title>
+    <title>Projects | CODEX Web and Design</title>
 
-    <link rel="stylesheet" href="css/codex-team.css" />
+    <link rel="stylesheet" href="css/codex-project.css" />
+    <link rel="stylesheet" href="css/site-navigation.css" />
+
+    <script src="js/codex-project.js" defer></script>
   </head>
 
-  <body class="team-page">
-    <header class="team-header">
-      <a href="index.html" class="team-brand">
-        <img
-          src="images/codex-logo.png"
-          alt="CODEX Web and Design logo"
-          class="team-logo"
-        />
-        <span>CODEX Web and Design</span>
-      </a>
+  <body>
+    <div class="projects-page">
+      <!-- =====================================
+           HEADER
+      ====================================== -->
 
-      <a href="codex-home.html" class="team-home-link"> Home </a>
-    </header>
+      <header class="projects-header">
+        <div class="projects-brand">
+          <img
+            class="projects-logo"
+            src="images/codex-logo.png"
+            alt="CODEX Web and Design logo"
+          />
 
-    <main class="team-main">
-      <section class="team-introduction">
-        <p class="team-eyebrow">THE PEOPLE BEHIND THE WORK</p>
+          <span class="projects-brand-text">
+            <strong>CODEX</strong>
+            <span>Web and Design</span>
+          </span>
+        </div>
 
-        <h1>Meet Our Team</h1>
+        <div class="header-navigation-links">
+<a class="startup-home-icon" href="index.html" aria-label="Go to the Startup page">
+  <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+    <path d="M3 10.5 12 3l9 7.5"></path>
+    <path d="M5.5 9.5V21h13V9.5M9.5 21v-7h5v7"></path>
+  </svg>
+</a><a class="projects-home-link" href="codex-home.html"> Home </a>
+</div>
+      </header>
 
-        <p>
-          Every creative idea needs people willing to think, learn, collaborate,
-          and bring it to life. Meet the team behind CODEX Web and Design.
-        </p>
+      <main>
+        <!-- =====================================
+             INTRODUCTION
+        ====================================== -->
 
-        <p class="team-motto">You Think. We Create.</p>
-      </section>
+        <section class="projects-hero" aria-labelledby="projectsTitle">
+          <p class="projects-eyebrow">BUILDING WHAT COMES NEXT</p>
 
-      <section class="team-members" aria-label="CODEX team members">
-        <!-- TEAM MEMBER 1 -->
-        <article class="team-member">
-          <button
-            type="button"
-            class="member-header"
-            aria-expanded="false"
-            aria-controls="perfectInfo"
-          >
-            <span>Foko Perfect</span>
-            <span class="toggle-icon" aria-hidden="true">+</span>
-          </button>
+          <h1 id="projectsTitle">Our <span>Projects</span></h1>
 
-          <div class="member-info" id="perfectInfo" hidden>
-            <img
-              src="images/perfect.png"
-              alt="Foko Perfect"
-              class="member-picture"
-              loading="lazy"
-            />
+          <p class="projects-introduction">
+            Every great creation starts with an idea. Follow the development of
+            our current projects and get a preview of what's coming next at
+            CODEX Web and Design.
+          </p>
+        </section>
 
-            <div class="member-details">
-              <h2>Foko Perfect</h2>
-              <p class="member-alias">Codex15P</p>
-              <p class="member-role">
-                Web Developer &amp; Microsoft Applications Specialist
-              </p>
-              <p>
-                <a
-                  href="https://wa.me/2349113234337"
-                  class="team-contact-btn"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  Chat on WhatsApp
-                </a>
-              </p>
-            </div>
-          </div>
-        </article>
+        <!-- =====================================
+             CURRENT PROJECTS
+        ====================================== -->
 
-        <!-- TEAM MEMBER 2 -->
-        <article class="team-member">
-          <button
-            type="button"
-            class="member-header"
-            aria-expanded="false"
-            aria-controls="ogheneremuInfo"
-          >
-            <span>Ogedegbe Ogheneremu</span>
-            <span class="toggle-icon" aria-hidden="true">+</span>
-          </button>
-
-          <div class="member-info" id="ogheneremuInfo" hidden>
-            <img
-              src="images/ogheneremu.png"
-              alt="Ogedegbe Ogheneremu"
-              class="member-picture"
-              loading="lazy"
-            />
-
-            <div class="member-details">
-              <h2>Ogedegbe Ogheneremu</h2>
-              <p class="member-alias">Remy Editz</p>
-              <p class="member-role">Video Editor &amp; Graphic Designer</p>
-              <p>
-                <a
-                  href="https://wa.me/2349134249417"
-                  class="team-contact-btn"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  Chat on WhatsApp
-                </a>
-              </p>
-            </div>
-          </div>
-        </article>
-
-        <!-- TEAM MEMBER 3 -->
-        <article class="team-member">
-          <button
-            type="button"
-            class="member-header"
-            aria-expanded="false"
-            aria-controls="mubarakInfo"
-          >
-            <span>Babatunde Mubarak</span>
-            <span class="toggle-icon" aria-hidden="true">+</span>
-          </button>
-
-          <div class="member-info" id="mubarakInfo" hidden>
-            <img
-              src="images/mubarak.png"
-              alt="Babatunde Mubarak"
-              class="member-picture"
-              loading="lazy"
-            />
-
-            <div class="member-details">
-              <h2>Babatunde Mubarak</h2>
-              <p class="member-alias">EDNUT</p>
-              <p class="member-role">Video Editor &amp; Animator</p>
-              <p>
-                <a
-                  href="https://wa.me/2348161429666"
-                  class="team-contact-btn"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  Chat on WhatsApp
-                </a>
-              </p>
-            </div>
-          </div>
-        </article>
-
-        <!-- TEAM MEMBER 4 -->
-        <article class="team-member">
-          <button
-            type="button"
-            class="member-header"
-            aria-expanded="false"
-            aria-controls="favourInfo"
-          >
-            <span>Abuchitete Favour</span>
-            <span class="toggle-icon" aria-hidden="true">+</span>
-          </button>
-
-          <div class="member-info" id="favourInfo" hidden>
-            <img
-              src="images/favour.png"
-              alt="Abuchitete Favour"
-              class="member-picture"
-              loading="lazy"
-            />
-
-            <div class="member-details">
-              <h2>Abuchitete Favour</h2>
-              <p class="member-alias">Prime Edit</p>
-              <p class="member-role">Video Editor &amp; Graphic Designer</p>
-              <p>
-                <a
-                  href="https://wa.me/2349013278590"
-                  class="team-contact-btn"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  Chat on WhatsApp
-                </a>
-              </p>
-            </div>
-          </div>
-        </article>
-      </section>
-
-      <section class="team-community">
-        <h2>Creativity Works Better Together</h2>
-
-        <p>
-          Follow our journey, connect with the community, and stay updated on
-          what we are building.
-        </p>
-
-        <a
-          href="https://chat.whatsapp.com/H5QAHe00jgaHlfQfZCJz6q"
-          target="_blank"
-          rel="noopener noreferrer"
-          class="team-community-button"
+        <section
+          class="projects-showcase"
+          aria-labelledby="projectsShowcaseTitle"
         >
-          Join Our WhatsApp Community
-        </a>
-      </section>
+          <div class="projects-section-heading">
+            <p class="projects-eyebrow">BEHIND THE CREATION</p>
 
-      <section class="team-navigation">
-        <a href="codex-gallery.html">Explore Our Project Gallery</a>
-        <a href="codex-enquiry.html">Let's Start a New project </a>
-        <a href="codex-about.html">About CODEX</a>
-      </section>
-    </main>
+            <h2 id="projectsShowcaseTitle">Current Projects</h2>
 
-    <!-- IMAGE VIEWER -->
-    <div
-      class="image-viewer"
-      id="imageViewer"
-      role="dialog"
-      aria-modal="true"
-      aria-label="Team member photograph"
-      hidden
-    >
-      <button
-        type="button"
-        class="image-viewer-close"
-        id="imageViewerClose"
-        aria-label="Close image viewer"
-      >
-        &times;
-      </button>
+            <p>
+              Take a look at what we're currently developing. Each listing
+              provides a preview, project category, development status, and
+              expected publication date.
+            </p>
+          </div>
 
-      <img src="" alt="" id="fullTeamImage" />
+          <!-- =================================
+               PROJECT LISTINGS
+
+               TO ADD ANOTHER PROJECT:
+
+               1. Copy one complete
+                  projects-card article.
+
+               2. Paste it inside this
+                  projects-grid container.
+
+               3. Replace the preview image,
+                  category, description,
+                  status, and publication date.
+
+               4. Do not duplicate IDs.
+
+               5. Keep the existing class names.
+          ================================== -->
+
+          <div class="projects-grid">
+            <!-- =================================
+                 PROJECT LISTING 01
+            ================================== -->
+
+            <article class="projects-card" data-publication="">
+              <!-- PROJECT PREVIEW -->
+
+              <div class="projects-preview-visual">
+                <div class="projects-preview-placeholder">
+                  <div class="projects-preview-placeholder-bar" aria-hidden="true">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                  </div>
+                  <div class="projects-preview-placeholder-content">
+                    <span class="projects-preview-placeholder-label">
+                      PROJECT PREVIEW
+                    </span>
+                    <p>
+                      A screenshot will appear here when this project is ready
+                      to share.
+                    </p>
+                  </div>
+                </div></div>
+
+              <!-- PROJECT INFORMATION -->
+
+              <div class="projects-card-content">
+                <!-- PROJECT CATEGORY -->
+
+                <p class="projects-category-label">PROJECT CATEGORY</p>
+
+                <h3 class="projects-category">To be announced</h3>
+
+                <!-- SHORT DESCRIPTION -->
+
+                <p class="projects-description">
+                  A new digital experience is currently being developed by
+                  CODEX. More details and a complete public preview will be
+                  available upon release.
+                </p>
+
+                <!-- PROJECT STATUS -->
+
+                <div class="projects-information">
+                  <div class="projects-information-item">
+                    <span class="projects-information-label">
+                      Development Status
+                    </span>
+
+                    <span class="projects-status-badge"> In Progress </span>
+                  </div>
+
+                  <!-- PUBLICATION DATE -->
+
+                  <div class="projects-information-item">
+                    <span class="projects-information-label">
+                      Expected Publication
+                    </span>
+
+                    <time class="projects-publication-date">
+                      To be announced
+                    </time>
+                  </div>
+                </div>
+
+                <!-- COUNTDOWN -->
+
+                <div class="projects-countdown">
+                  <p class="projects-countdown-heading">
+                    PUBLICATION COUNTDOWN
+                  </p>
+
+                  <div class="projects-countdown-display">
+                    <div class="projects-countdown-unit">
+                      <strong data-countdown-days>--</strong>
+                      <span>Days</span>
+                    </div>
+
+                    <div class="projects-countdown-unit">
+                      <strong data-countdown-hours>--</strong>
+                      <span>Hours</span>
+                    </div>
+
+                    <div class="projects-countdown-unit">
+                      <strong data-countdown-minutes>--</strong>
+                      <span>Minutes</span>
+                    </div>
+
+                    <div class="projects-countdown-unit">
+                      <strong data-countdown-seconds>--</strong>
+                      <span>Seconds</span>
+                    </div>
+                  </div>
+
+                  <p class="projects-countdown-message">
+                    Countdown will appear when a publication date is announced.
+                  </p>
+                </div>
+              </div>
+            </article>
+
+            <!--
+              ADD FUTURE PROJECT LISTINGS ABOVE THIS LINE.
+
+              Copy the complete article above, then edit
+              its category, description, preview, status,
+              and publication date.
+            -->
+          </div>
+        </section>
+
+        <!-- =====================================
+             COMMUNITY SECTION
+        ====================================== -->
+
+        <section class="projects-community">
+          <div class="projects-community-content">
+            <p class="projects-eyebrow">STAY CONNECTED</p>
+
+            <h2>Follow the CODEX Journey</h2>
+
+            <p>
+              Join our WhatsApp community to connect with us and keep up with
+              updates, ideas, and creative developments.
+            </p>
+
+            <a
+              class="projects-community-button"
+              href="https://chat.whatsapp.com/H5QAHe00jgaHlfQfZCJz6q"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Join Our WhatsApp Community
+            </a>
+          </div>
+        </section>
+
+        <!-- =====================================
+             GALLERY CALL TO ACTION
+        ====================================== -->
+
+        <section class="projects-gallery-cta">
+          <h2>Want to See Our Work?</h2>
+
+          <p>
+            Explore the Gallery to see the work currently showcased by CODEX.
+          </p>
+
+          <a class="projects-gallery-button" href="codex-gallery.html">
+            Explore Our Projects Work
+          </a>
+        </section>
+      </main>
+
+      <!-- =====================================
+           FOOTER
+      ====================================== -->
+
+      <footer class="projects-footer">
+        <div class="projects-footer-brand">
+          <strong> CODEX Web and Design </strong>
+
+          <p>You Think. We Create.</p>
+        </div>
+
+        <nav class="projects-footer-navigation" aria-label="Footer navigation">
+          <a href="codex-home.html">Home</a>
+          <a href="codex-gallery.html">Projects</a>
+          <a href="codex-enquiry.html">Inquiry</a>
+          <a href="codex-team.html">Team</a>
+          <a href="codex-about.html">About</a>
+        </nav>
+
+        <p class="projects-copyright">
+          &copy;
+
+          <span id="projectsCurrentYear"></span>
+
+          CODEX Web and Design. All rights reserved.
+        </p>
+      </footer>
     </div>
-
-    <footer class="team-footer">
-      <a href="index.html">CODEX Web and Design</a>
-      <p>You Think. We Create.</p>
-      <p>
-        &copy; <span id="teamCurrentYear">2026</span>
-        CODEX Web and Design. All rights reserved.
-      </p>
-    </footer>
-
-    <script src="js/codex-team.js"></script>
   </body>
 </html>
