@@ -14,6 +14,7 @@
     <title>Our Gallery | CODEX Web and Design</title>
 
     <link rel="stylesheet" href="css/codex-gallery.css" />
+    <link rel="stylesheet" href="css/site-navigation.css" />
     <script src="js/codex-gallery.js" defer></script>
   </head>
 
@@ -24,11 +25,7 @@
       ====================================== -->
 
       <header class="gallery-header">
-        <a
-          class="gallery-brand"
-          href="index.html"
-          aria-label="CODEX Web and Design entry page"
-        >
+        <div class="gallery-brand">
           <img
             src="images/codex-logo.png"
             alt="CODEX Web and Design logo"
@@ -39,9 +36,16 @@
             <strong>CODEX</strong>
             <span>Web and Design</span>
           </span>
-        </a>
+        </div>
 
-        <a class="gallery-home-link" href="codex-home.html"> Home </a>
+        <div class="header-navigation-links">
+<a class="startup-home-icon" href="index.html" aria-label="Go to the Startup page">
+  <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+    <path d="M3 10.5 12 3l9 7.5"></path>
+    <path d="M5.5 9.5V21h13V9.5M9.5 21v-7h5v7"></path>
+  </svg>
+</a><a class="gallery-home-link" href="codex-home.html"> Home </a>
+</div>
       </header>
 
       <main>
@@ -218,11 +222,20 @@
               <!-- PROJECT PREVIEW -->
 
               <div class="gallery-project-preview">
-                <img
-                  class="gallery-project-image"
-                  src="images/gloria-preview.png"
-                  alt="Screenshot of your project"
-                />
+                <button
+                  type="button"
+                  class="gallery-project-preview-link"
+                  data-gallery-image="images/gloria-preview.png"
+                  data-image-alt="Full website screenshot for Gloria's Catering Services"
+                  aria-label="View the full website screenshot for Gloria's Catering Services"
+                >
+                  <img
+                    class="gallery-project-image"
+                    src="images/gloria-preview.png"
+                    alt=""
+                    aria-hidden="true"
+                  />
+                </button>
                 <div class="gallery-preview-placeholder">
                   <!-- <span class="gallery-preview-label"> WEB DEVELOPMENT </span>
 
@@ -252,7 +265,8 @@
                 <!--
                   PROJECT DESTINATION BUTTON
 
-                  Replace the href placeholder with the real website URL.
+                  Keep this separate from the preview media above. It is the
+                  link that opens the real website or social destination.
 
                   Example:
                   href="https://yourwebsite.com"
@@ -278,12 +292,18 @@
               Duplicate the complete PROJECT CARD above.
               Paste it here and edit its details.
 
-              For a video project, for example:
+              For a video project, place a playable video inside
+              .gallery-project-preview, for example:
+
+              <video class="gallery-project-video" controls preload="metadata" poster="images/video-poster.png">
+                <source src="videos/your-project-video.mp4" type="video/mp4" />
+                Your browser does not support video playback.
+              </video>
 
               data-category="video-editing"
 
               Button text:
-              Watch Video ▶
+              View Video on YouTube ↗
 
               Button href:
               Your public video or social media URL.
@@ -298,9 +318,28 @@
               Button href:
               Your public design viewing link.
 
-              Each project gets its OWN destination link.
+              Each project gets its OWN destination link. Do not wrap the
+              entire project card in a link.
             -->
           </div>
+
+          <dialog
+            class="gallery-media-dialog"
+            id="galleryMediaDialog"
+            aria-labelledby="galleryMediaDialogTitle"
+          >
+            <div class="gallery-media-dialog-heading">
+              <p id="galleryMediaDialogTitle">Project preview</p>
+              <button
+                type="button"
+                class="gallery-media-dialog-close"
+                aria-label="Close full-size preview"
+              >
+                &times;
+              </button>
+            </div>
+            <img id="galleryExpandedImage" src="" alt="" />
+          </dialog>
 
           <!-- EMPTY CATEGORY MESSAGE -->
 
