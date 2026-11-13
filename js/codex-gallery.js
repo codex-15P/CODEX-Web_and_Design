@@ -27,6 +27,14 @@
 
   const showAllButton = galleryPage.querySelector(".gallery-show-all-button");
 
+  const mediaDialog = galleryPage.querySelector("#galleryMediaDialog");
+
+  const expandedImage = galleryPage.querySelector("#galleryExpandedImage");
+
+  const closeMediaDialogButton = galleryPage.querySelector(
+    ".gallery-media-dialog-close",
+  );
+
   // Check that the essential elements exist.
   if (!filterButtons.length || !projectGrid || !emptyState) {
     console.warn(
@@ -101,6 +109,57 @@
   if (showAllButton) {
     showAllButton.addEventListener("click", function () {
       filterGalleryProjects("all");
+    });
+  }
+
+  // =====================================
+  // FULL-SIZE IMAGE PREVIEWS
+  // =====================================
+
+  if (projectGrid && mediaDialog && expandedImage) {
+    function closeMediaDialog() {
+      if (typeof mediaDialog.close === "function") {
+        mediaDialog.close();
+      } else {
+        mediaDialog.removeAttribute("open");
+        expandedImage.removeAttribute("src");
+        expandedImage.alt = "";
+      }
+    }
+
+    projectGrid.addEventListener("click", function (event) {
+      const previewButton = event.target.closest("[data-gallery-image]");
+
+      if (!previewButton || !projectGrid.contains(previewButton)) return;
+
+      const imageSource = previewButton.getAttribute("data-gallery-image");
+
+      if (!imageSource) return;
+
+      expandedImage.src = imageSource;
+      expandedImage.alt =
+        previewButton.getAttribute("data-image-alt") || "Full-size project preview";
+
+      if (typeof mediaDialog.showModal === "function") {
+        mediaDialog.showModal();
+      } else {
+        mediaDialog.setAttribute("open", "");
+      }
+    });
+
+    if (closeMediaDialogButton) {
+      closeMediaDialogButton.addEventListener("click", function () {
+        closeMediaDialog();
+      });
+    }
+
+    mediaDialog.addEventListener("click", function (event) {
+      if (event.target === mediaDialog) closeMediaDialog();
+    });
+
+    mediaDialog.addEventListener("close", function () {
+      expandedImage.removeAttribute("src");
+      expandedImage.alt = "";
     });
   }
 
