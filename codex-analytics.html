@@ -18,9 +18,14 @@
     <!-- Analytics Dashboard Stylesheet -->
     <link rel="stylesheet" href="css/codex-analytics.css" />
     <link rel="stylesheet" href="css/site-navigation.css" />
+    <script src="js/site-navigation.js" defer></script>
+    <link rel="stylesheet" href="css/codex-admin-chat.css" />
 
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2" defer></script>
+    <script src="js/codex-supabase.js" defer></script>
     <!-- Analytics Dashboard JavaScript -->
     <script src="js/codex-analytic.js" defer></script>
+    <script src="js/codex-admin-chat.js" defer></script>
   </head>
 
   <body class="analytics-page">
@@ -54,11 +59,15 @@
           <span>Demo Dashboard</span>
         </div>
 
-        <div class="analytics-admin-profile">
+        <div class="analytics-admin-profile" id="analyticsAdminProfile" hidden>
           <span class="admin-avatar">C</span>
 
           <span class="admin-profile-name"> Administrator </span>
         </div>
+
+        <button class="analytics-signout-button" id="analyticsSignOut" type="button" hidden>
+          Sign out
+        </button>
 
         <button
           class="sidebar-toggle"
@@ -74,6 +83,23 @@
         </button>
       </div>
     </header>
+
+    <section class="analytics-login-screen" id="analyticsAuthGate" aria-labelledby="analyticsLoginTitle">
+      <form class="analytics-login-card" id="analyticsLoginForm">
+        <p class="analytics-eyebrow">PRIVATE TEAM ACCESS</p>
+        <h1 id="analyticsLoginTitle">CODEX Analytics</h1>
+        <p class="analytics-login-description">Sign in with your CODEX administrator account to open the dashboard.</p>
+
+        <label for="analyticsLoginEmail">Email address</label>
+        <input id="analyticsLoginEmail" name="email" type="email" autocomplete="username" required />
+
+        <label for="analyticsLoginPassword">Password</label>
+        <input id="analyticsLoginPassword" name="password" type="password" autocomplete="current-password" required />
+
+        <button class="analytics-login-submit" id="analyticsLoginSubmit" type="submit">Sign in</button>
+        <p class="analytics-login-message" id="analyticsLoginMessage" role="status" aria-live="polite"></p>
+      </form>
+    </section>
 
     <!-- =====================================
        DASHBOARD LAYOUT
@@ -105,6 +131,15 @@
           >
             <span class="sidebar-icon">◷</span>
             <span>Visitor History</span>
+          </button>
+
+          <button
+            class="sidebar-link"
+            type="button"
+            data-view-target="teamChatView"
+          >
+            <span class="sidebar-icon">✉</span>
+            <span>Team Chat</span>
           </button>
 
           <button
@@ -161,10 +196,9 @@
           <span class="notice-icon">ⓘ</span>
 
           <p>
-            <strong>Frontend Preview:</strong>
-            This dashboard currently displays sample interface elements. Real
-            visitor tracking and secure administrator authentication have not
-            been connected.
+            <strong>Preview dashboard:</strong>
+            Administrator sign-in is available. The figures and reports are
+            still placeholders because real visitor tracking is not connected.
           </p>
         </div>
 
@@ -638,12 +672,104 @@
               <table class="analytics-table">
                 <thead>
                   <tr>
-                    <th>Visitor Referen</th>
+                    <th>Visitor reference</th>
+                    <th>Page</th>
+                    <th>Visited</th>
                   </tr>
                 </thead>
+                <tbody>
+                  <tr>
+                    <td colspan="3">Visitor records will appear here after tracking is connected.</td>
+                  </tr>
+                </tbody>
               </table>
             </div>
           </div>
+        </section>
+
+        <section class="analytics-view" id="teamChatView" aria-labelledby="teamChatTitle" hidden>
+          <div class="analytics-page-heading">
+            <div>
+              <p class="analytics-eyebrow">COMMUNITY MODERATION</p>
+              <h1 id="teamChatTitle">TEAM <span>CHAT</span></h1>
+              <p class="analytics-subtitle">Manage the shared CODEX group chat, review messages, and moderate members.</p>
+            </div>
+          </div>
+
+          <div class="codex-admin-chat-layout">
+            <section class="analytics-panel codex-admin-chat-inbox" aria-labelledby="chatInboxTitle">
+              <div class="panel-heading">
+                <div>
+                  <h2 id="chatInboxTitle">Group members</h2>
+                  <p>Mute or unmute community members.</p>
+                </div>
+                <button class="analytics-report-button" id="refreshChatInbox" type="button">Refresh</button>
+              </div>
+              <div class="codex-admin-chat-list" id="codexAdminChatList" aria-live="polite">
+                <p class="codex-admin-chat-empty">Community members will appear here.</p>
+              </div>
+            </section>
+
+            <section class="analytics-panel codex-admin-chat-thread" aria-labelledby="chatThreadTitle">
+              <div class="panel-heading">
+                <div>
+                  <h2 id="chatThreadTitle">CODEX Community Chat</h2>
+                  <p id="codexAdminChatThreadHint">Messages from the shared group will appear here.</p>
+                </div>
+              </div>
+              <div class="codex-admin-chat-messages" id="codexAdminChatMessages" role="log" aria-live="polite" aria-relevant="additions text"></div>
+              <p class="codex-admin-chat-status" id="codexAdminChatStatus" role="status" aria-live="polite"></p>
+              <form class="codex-admin-chat-form" id="codexAdminChatForm" hidden>
+                <label for="codexAdminChatReply">Send a message to the group as CODEX Admin</label>
+                <textarea id="codexAdminChatReply" rows="3" maxlength="10000" placeholder="Write a group message…" required></textarea>
+                <button class="analytics-report-button analytics-report-button-primary" id="sendAdminChatReply" type="submit">Send group message</button>
+              </form>
+            </section>
+          </div>
+        </section>
+
+        <section class="analytics-view" id="reportsView" aria-labelledby="reportsTitle" hidden>
+          <div class="analytics-page-heading">
+            <div>
+              <p class="analytics-eyebrow">WEBSITE PERFORMANCE</p>
+              <h1 id="reportsTitle">ANALYTICS <span>REPORTS</span></h1>
+              <p class="analytics-subtitle">Prepare a report template while visitor tracking is being set up.</p>
+            </div>
+          </div>
+
+          <article class="analytics-panel">
+            <div class="panel-heading">
+              <div>
+                <h2>Report options</h2>
+                <p>These options do not contain live visitor statistics yet.</p>
+              </div>
+            </div>
+            <div class="analytics-report-actions">
+              <button class="analytics-report-button" type="button" data-report-period="daily">Daily</button>
+              <button class="analytics-report-button" type="button" data-report-period="weekly">Weekly</button>
+              <button class="analytics-report-button" type="button" data-report-period="monthly">Monthly</button>
+              <button class="analytics-report-button analytics-report-button-primary" id="exportAnalyticsCSV" type="button">Download CSV template</button>
+            </div>
+            <p class="analytics-report-message" id="reportsMessage" role="status" aria-live="polite" hidden></p>
+          </article>
+        </section>
+
+        <section class="analytics-view" id="settingsView" aria-labelledby="settingsTitle" hidden>
+          <div class="analytics-page-heading">
+            <div>
+              <p class="analytics-eyebrow">ACCOUNT ACCESS</p>
+              <h1 id="settingsTitle">DASHBOARD <span>SETTINGS</span></h1>
+              <p class="analytics-subtitle">Your signed-in CODEX administrator account controls access to this dashboard.</p>
+            </div>
+          </div>
+          <article class="analytics-panel">
+            <div class="panel-heading">
+              <div>
+                <h2>Administrator access</h2>
+                <p>Only accounts assigned the admin role in Supabase should be used here. Sign out when you finish.</p>
+              </div>
+            </div>
+          </article>
         </section>
       </main>
     </div>
