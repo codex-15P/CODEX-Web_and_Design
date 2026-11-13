@@ -79,4 +79,3 @@
   /* Ensure the menu starts closed. */
   closeNavigation();
 })();
-                            
