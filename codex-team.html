@@ -15,6 +15,11 @@
 
     <link rel="stylesheet" href="css/codex-team.css" />
     <link rel="stylesheet" href="css/site-navigation.css" />
+    <script src="js/site-navigation.js" defer></script>
+    <link rel="stylesheet" href="css/codex-chat-widget.css" />
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2" defer></script>
+    <script src="js/codex-supabase.js" defer></script>
+    <script src="js/codex-chat-widget.js" defer></script>
   </head>
 
   <body class="team-page">
@@ -58,14 +63,14 @@
           <button
             type="button"
             class="member-header"
-            aria-expanded="false"
+            aria-expanded="true"
             aria-controls="perfectInfo"
           >
             <span>Foko Perfect</span>
-            <span class="toggle-icon" aria-hidden="true">+</span>
+            <span class="toggle-icon" aria-hidden="true">−</span>
           </button>
 
-          <div class="member-info" id="perfectInfo" hidden>
+          <div class="member-info" id="perfectInfo">
             <img
               src="images/perfect.png"
               alt="Foko Perfect"
@@ -98,14 +103,14 @@
           <button
             type="button"
             class="member-header"
-            aria-expanded="false"
+            aria-expanded="true"
             aria-controls="ogheneremuInfo"
           >
             <span>Ogedegbe Ogheneremu</span>
-            <span class="toggle-icon" aria-hidden="true">+</span>
+            <span class="toggle-icon" aria-hidden="true">−</span>
           </button>
 
-          <div class="member-info" id="ogheneremuInfo" hidden>
+          <div class="member-info" id="ogheneremuInfo">
             <img
               src="images/ogheneremu.png"
               alt="Ogedegbe Ogheneremu"
@@ -136,14 +141,14 @@
           <button
             type="button"
             class="member-header"
-            aria-expanded="false"
+            aria-expanded="true"
             aria-controls="mubarakInfo"
           >
             <span>Babatunde Mubarak</span>
-            <span class="toggle-icon" aria-hidden="true">+</span>
+            <span class="toggle-icon" aria-hidden="true">−</span>
           </button>
 
-          <div class="member-info" id="mubarakInfo" hidden>
+          <div class="member-info" id="mubarakInfo">
             <img
               src="images/mubarak.png"
               alt="Babatunde Mubarak"
@@ -174,14 +179,14 @@
           <button
             type="button"
             class="member-header"
-            aria-expanded="false"
+            aria-expanded="true"
             aria-controls="favourInfo"
           >
             <span>Abuchitete Favour</span>
-            <span class="toggle-icon" aria-hidden="true">+</span>
+            <span class="toggle-icon" aria-hidden="true">−</span>
           </button>
 
-          <div class="member-info" id="favourInfo" hidden>
+          <div class="member-info" id="favourInfo">
             <img
               src="images/favour.png"
               alt="Abuchitete Favour"
@@ -228,7 +233,7 @@
 
       <section class="team-navigation">
         <a href="codex-gallery.html">Explore Our Project Gallery</a>
-        <a href="codex-enquiry.html">Let's Start a New project </a>
+        <a href="codex-enquiry.html">Let's Start a New Project</a>
         <a href="codex-about.html">About CODEX</a>
       </section>
     </main>
@@ -255,7 +260,7 @@
     </div>
 
     <footer class="team-footer">
-      <a href="index.html">CODEX Web and Design</a>
+      <span class="team-footer-brand">CODEX Web and Design</span>
       <p>You Think. We Create.</p>
       <p>
         &copy; <span id="teamCurrentYear">2026</span>
@@ -263,6 +268,6 @@
       </p>
     </footer>
 
-    <script src="js/codex-team.js"></script>
+    <script src="js/codex-team.js" defer></script>
   </body>
 </html>
