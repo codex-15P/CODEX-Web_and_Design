@@ -57,11 +57,14 @@
     const contentId = button.getAttribute("aria-controls");
     const content = contentId ? document.getElementById(contentId) : null;
 
-    button.setAttribute("aria-expanded", "false");
+    // Show complete profiles on arrival so this page reads as a team page,
+    // while keeping the names available as an accessible accordion control.
+    button.setAttribute("aria-expanded", "true");
 
-    if (content) {
-      content.hidden = true;
-    }
+    const icon = button.querySelector(".toggle-icon");
+    if (icon) icon.textContent = "−";
+
+    if (content) content.hidden = false;
 
     button.addEventListener("click", () => {
       const isOpen = button.getAttribute("aria-expanded") === "true";
@@ -148,6 +151,12 @@
   document.addEventListener("keydown", (event) => {
     if (event.key === "Escape" && !imageViewer.hidden) {
       closeImageViewer();
+      return;
+    }
+
+    if (event.key === "Tab" && !imageViewer.hidden) {
+      event.preventDefault();
+      imageViewerClose.focus();
     }
   });
 })();
