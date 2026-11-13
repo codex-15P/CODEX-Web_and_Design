@@ -1,0 +1,172 @@
+.codex-admin-chat-layout {
+  display: grid;
+  grid-template-columns: minmax(250px, 0.72fr) minmax(0, 1.5fr);
+  gap: 14px;
+  align-items: stretch;
+}
+
+.codex-admin-chat-inbox,
+.codex-admin-chat-thread {
+  min-width: 0;
+}
+
+.codex-admin-chat-list {
+  display: grid;
+  max-height: min(68vh, 720px);
+  gap: 7px;
+  overflow-y: auto;
+}
+
+.codex-admin-chat-conversation {
+  display: grid;
+  gap: 5px;
+  width: 100%;
+  padding: 12px;
+  border: 1px solid var(--line);
+  border-radius: 9px;
+  background: var(--surface);
+  color: var(--body);
+  text-align: left;
+  cursor: pointer;
+}
+
+.codex-admin-chat-conversation:hover,
+.codex-admin-chat-conversation.is-selected {
+  border-color: var(--brand);
+  background: var(--brand-soft);
+}
+
+.codex-admin-chat-conversation strong {
+  color: var(--ink);
+  font-size: 12px;
+}
+
+.codex-admin-chat-conversation span,
+.codex-admin-chat-empty {
+  color: var(--muted);
+  font-size: 10px;
+}
+
+.codex-admin-chat-member { display: flex; align-items: center; justify-content: space-between; gap: 8px; padding: 10px; border: 1px solid var(--line); border-radius: 9px; background: var(--surface); }
+.codex-admin-chat-member strong { min-width: 0; color: var(--ink); font-size: 11px; overflow-wrap: anywhere; }
+.codex-admin-chat-member button, .codex-admin-chat-remove { flex: 0 0 auto; padding: 6px 9px; border: 1px solid var(--line); border-radius: 7px; background: var(--surface); color: var(--body); font-size: 10px; font-weight: 700; cursor: pointer; }
+.codex-admin-chat-member button:hover, .codex-admin-chat-remove:hover { border-color: #a33f32; color: #a33f32; }
+.codex-admin-chat-remove { justify-self: end; }
+.codex-admin-chat-message audio { width: min(300px, 100%); }
+
+.codex-admin-chat-empty {
+  margin: 8px 0;
+  line-height: 1.6;
+}
+
+.codex-admin-chat-messages {
+  display: flex;
+  min-height: 300px;
+  max-height: min(56vh, 560px);
+  flex-direction: column;
+  gap: 10px;
+  overflow-y: auto;
+  padding: 12px;
+  border: 1px solid var(--line);
+  border-radius: 9px;
+  background: var(--paper);
+}
+
+.codex-admin-chat-message {
+  display: grid;
+  max-width: min(88%, 560px);
+  gap: 4px;
+  padding: 10px 12px;
+  border-radius: 11px;
+  background: var(--surface);
+  color: var(--body);
+  font-size: 12px;
+  line-height: 1.55;
+  overflow-wrap: anywhere;
+}
+
+.codex-admin-chat-message.is-visitor {
+  align-self: flex-start;
+  border: 1px solid var(--line);
+  border-bottom-left-radius: 3px;
+}
+
+.codex-admin-chat-message.is-team {
+  align-self: flex-end;
+  border-bottom-right-radius: 3px;
+  background: var(--brand-soft);
+}
+
+.codex-admin-chat-message strong {
+  color: var(--ink);
+  font-size: 10px;
+}
+
+.codex-admin-chat-message p {
+  margin: 0;
+  white-space: pre-wrap;
+}
+
+.codex-admin-chat-message time {
+  justify-self: end;
+  color: var(--muted);
+  font-size: 9px;
+}
+
+.codex-admin-chat-status {
+  min-height: 20px;
+  margin: 8px 0 0;
+  color: var(--muted);
+  font-size: 11px;
+}
+
+.codex-admin-chat-status.is-error {
+  color: #a33f32;
+}
+
+.codex-admin-chat-form {
+  display: grid;
+  gap: 8px;
+  margin-top: 10px;
+}
+
+.codex-admin-chat-form[hidden] {
+  display: none;
+}
+
+.codex-admin-chat-form label {
+  color: var(--muted);
+  font-size: 11px;
+  font-weight: 700;
+}
+
+.codex-admin-chat-form textarea {
+  width: 100%;
+  resize: vertical;
+  padding: 11px 12px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: var(--surface);
+  color: var(--ink);
+  font-size: 12px;
+  line-height: 1.5;
+}
+
+.codex-admin-chat-form button {
+  justify-self: start;
+}
+
+@media (max-width: 760px) {
+  .codex-admin-chat-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .codex-admin-chat-list {
+    max-height: 260px;
+  }
+
+  .codex-admin-chat-messages {
+    min-height: 250px;
+    max-height: 48vh;
+  }
+}
